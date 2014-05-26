@@ -24,7 +24,12 @@
         "sensio/distribution-bundle": "~2.3",
         "sensio/framework-extra-bundle": "~3.0",
         "sensio/generator-bundle": "~2.3",
-        "incenteev/composer-parameter-handler": "~2.0"
+        "incenteev/composer-parameter-handler": "~2.0",
+        "sonata-project/admin-bundle": "2.3.x-dev",
+        "sonata-project/doctrine-orm-admin-bundle": "2.3.x-dev",
+        "sonata-project/core-bundle": "2.2.x-dev",
+        "sonata-project/datagrid-bundle": "2.2.x-dev",
+        "sonata-project/user-bundle": "2.3.x-dev"
     },
     "scripts": {
         "post-install-cmd": [
