@@ -11,5 +11,7 @@ parameters:
     mailer_user:       ~
     mailer_password:   ~
 
+    mailer_dev_address: developer@email.address
+
     locale:            en
     secret:            ThisTokenIsNotSoSecretChangeIt
