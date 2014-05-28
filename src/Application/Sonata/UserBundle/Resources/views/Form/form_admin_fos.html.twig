@@ -1,0 +1,53 @@
+{#
+
+This file is part of the Sonata package.
+
+(c) Thomas Rabaix <thomas.rabaix@sonata-project.org>
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+
+#}
+
+{% extends 'form_div_layout.html.twig' %}
+
+{% block form_widget_simple %}
+    {% set attr = attr|merge({'class': attr.class|default('') ~ ' form-control', 'placeholder': label}) %}
+    {{ parent() }}
+{% endblock form_widget_simple %}
+
+{% block form_label %}
+{% spaceless %}
+{% endspaceless %}
+{% endblock form_label %}
+
+{% block form_row %}
+    {% if errors|length > 0 %}
+        <div class="alert alert-danger alert-error">
+            {{ form_errors(form) }}
+        </div>
+    {% endif %}
+    <div class="form-group control-group">
+        {{ form_widget(form) }}
+    </div>
+{% endblock form_row %}
+
+{% block form_widget_compound %}
+{% spaceless %}
+    {% if form.parent is empty %}
+        {{ form_errors(form) }}
+    {% endif %}
+    {{ block('form_rows') }}
+    {{ form_rest(form) }}
+{% endspaceless %}
+{% endblock form_widget_compound %}
+
+{% block form_errors %}
+{% spaceless %}
+    {% if errors|length > 0 %}
+        {% for error in errors %}
+            {{ error.message }}{% if not loop.last %}<br/>{% endif %}
+        {% endfor %}
+    {% endif %}
+{% endspaceless %}
+{% endblock form_errors %}

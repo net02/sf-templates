@@ -1,5 +1,8 @@
 parameters: 
-#    sonata.user.admin.user.class: Application\Sonata\UserBundle\Admin\UserAdmin
+    eone.sonatacustomization.twig.global.class: Eone\SonataCustomizationBundle\Twig\GlobalVariables
 
 services:
-    
+    eone.sonatacustomization.twig.global:
+        class:  %eone.sonatacustomization.twig.global.class%
+        arguments: 
+            - "@service_container"

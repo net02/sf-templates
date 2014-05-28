@@ -1,0 +1,18 @@
+<div class="form-box" id="reset-box">
+    <div class="header">{{ 'forgotten_password'|trans({}, 'SonataUserBundle') }}</div>
+    <form action="{{ path('fos_user_resetting_send_email') }}" method="post" role="form">
+        <div class="body bg-gray">
+            {% if invalid_username is defined %}
+                    <div class="alert alert-danger alert-error">{{ 'resetting.request.invalid_username'|trans({'%username%': invalid_username}, 'FOSUserBundle') }}</div>
+            {% endif %}
+            <div class="form-group control-group">
+                <input type="text" class="form-control" id="username"  name="username" value="" required="required" placeholder="{{ 'resetting.request.username'|trans({}, 'FOSUserBundle') }}"/>
+            </div>
+        </div>
+
+        <div class="footer">
+            <button type="submit" id="_submit" name="_submit" class="btn bg-olive btn-block">{{ 'resetting.request.submit'|trans({}, 'FOSUserBundle') }}</button>
+            <p><a href="{{ path('sonata_user_admin_security_login') }}" class="text-center">{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}</a></p>
+        </div>
+    </form>
+</div>

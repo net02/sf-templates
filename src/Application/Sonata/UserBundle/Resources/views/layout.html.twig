@@ -1,0 +1,20 @@
+{% set base_template = sonata_customization.baseTemplate %}
+{% set admin_pool = sonata_customization.adminPool %}
+
+{% extends base_template %}
+
+{% block sonata_nav %}
+{% endblock sonata_nav %}
+
+{% block logo %}
+{% endblock logo %}
+
+{% block sonata_left_side %}
+{% endblock sonata_left_side %}
+
+{% block body_attributes %}class="sonata-bc bg-black"{% endblock %}
+
+{% block sonata_wrapper %}
+    {% block fos_user_content %}
+    {% endblock fos_user_content %}
+{% endblock sonata_wrapper %}

@@ -28,3 +28,6 @@ parameters:
     mailer_user: your-gmail-user
     mailer_password: your-gmail-password
 ```
+
+# Features
+* FOS features have been restricted to resetting only (see [routing.yml](app/config/routing.yml)) and use SonataAdmin theming.

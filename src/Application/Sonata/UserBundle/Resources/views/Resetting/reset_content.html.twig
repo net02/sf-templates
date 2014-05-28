@@ -1,0 +1,13 @@
+{% form_theme form 'ApplicationSonataUserBundle:Form:form_admin_fos.html.twig' %}
+
+<div class="form-box" id="reset-box">
+    <div class="header">{{ 'forgotten_password'|trans({}, 'SonataUserBundle') }}</div>
+    <form action="{{ path('fos_user_resetting_reset', {'token': token}) }}" {{ form_enctype(form) }} method="post" role="form">
+        <div class="body bg-gray">
+            {{ form_widget(form) }}
+        </div>
+        <div class="footer">
+            <button type="submit" id="_submit" name="_submit" class="btn bg-olive btn-block">{{ 'resetting.reset.submit'|trans({}, 'FOSUserBundle') }}</button>
+        </div>
+    </form>
+</div>

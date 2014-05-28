@@ -6,6 +6,11 @@ sonata_block:
         sonata.admin.block.admin_list:
             contexts:   [admin]
             
+        sonata.block.service.text:
+        sonata.block.service.rss:
+        sonata.user.block.menu:    # used to display the menu in profile pages
+        sonata.user.block.account: # used to display menu option (login option)
+            
 sonata_admin:
     title:      Project name
     title_logo: bundles/eonesonatacustomization/images/project_logo.png
@@ -28,13 +33,16 @@ sonata_admin:
 # FOS User w/ Sonata
 fos_user:
     db_driver:      orm
-    firewall_name:  main
+    firewall_name:  admin
     user_class:     Application\Sonata\UserBundle\Entity\User
     group:
         group_class:   Application\Sonata\UserBundle\Entity\Group
         group_manager: sonata.user.orm.group_manager
     service:
         user_manager: sonata.user.orm.user_manager
+    from_email:
+        address:        %project.email.address%
+        sender_name:    %project.email.sender%
         
 sonata_user:
     impersonating:

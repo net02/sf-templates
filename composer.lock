@@ -2376,12 +2376,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataUserBundle.git",
-                "reference": "c8ec576e82087a029c4fd0eec2adf9824136dcae"
+                "reference": "15ed82e340e9723bcb9fb6e239fead77f4136ef6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataUserBundle/zipball/c8ec576e82087a029c4fd0eec2adf9824136dcae",
-                "reference": "c8ec576e82087a029c4fd0eec2adf9824136dcae",
+                "url": "https://api.github.com/repos/sonata-project/SonataUserBundle/zipball/15ed82e340e9723bcb9fb6e239fead77f4136ef6",
+                "reference": "15ed82e340e9723bcb9fb6e239fead77f4136ef6",
                 "shasum": ""
             },
             "require": {
@@ -2440,7 +2440,7 @@
                 "sonata",
                 "user"
             ],
-            "time": "2014-05-14 16:59:44"
+            "time": "2014-05-27 09:22:16"
         },
         {
             "name": "swiftmailer/swiftmailer",

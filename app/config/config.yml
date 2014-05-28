@@ -1,5 +1,6 @@
 imports:
     - { resource: parameters.yml }
+    - { resource: project.yml }
     - { resource: security.yml }
     - { resource: sonata.yml }
 

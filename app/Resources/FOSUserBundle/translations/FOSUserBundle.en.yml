@@ -1,0 +1,4 @@
+# Password resetting
+resetting:
+    request:
+        username: "Username or email address"
