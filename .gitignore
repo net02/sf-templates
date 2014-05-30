@@ -22,5 +22,6 @@ composer.phar
 # Linux tmp
 *~
 
-# OSX
+# OSX & DreamWeaver
 .DS_Store
+_notes/
