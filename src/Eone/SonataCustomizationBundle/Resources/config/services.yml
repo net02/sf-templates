@@ -2,7 +2,33 @@ parameters:
     eone.sonatacustomization.twig.global.class: Eone\SonataCustomizationBundle\Twig\GlobalVariables
 
 services:
+    # sonata admin pool & tpl var
     eone.sonatacustomization.twig.global:
         class:  %eone.sonatacustomization.twig.global.class%
         arguments: 
             - "@service_container"
+            
+    # sonata i18n extension
+    eone.sonatacustomization.translatable.extension:
+        class: Eone\SonataCustomizationBundle\Admin\TranslatableAdminExtension
+        arguments: [%locales_available%]
+    eone.sonatacustomization.translating.extension:
+        class: Eone\SonataCustomizationBundle\Admin\TranslatingAdminExtension
+        arguments: [%locales_available%]
+    
+    # i18n stuff
+    nmn.locale:
+        class:     Eone\SonataCustomizationBundle\Service\Locale
+        arguments: [%locale%]
+        
+    nmn.locale_listener:
+        class:     Eone\SonataCustomizationBundle\Service\LocaleListener
+        arguments: ["@nmn.locale"]
+        tags:
+            - { name: kernel.event_listener, event: kernel.request }
+    nmn.set_i18n:
+        class:     Eone\SonataCustomizationBundle\Service\EntityListener
+        arguments: ["@nmn.locale"]
+        tags:
+            - { name: doctrine.event_listener, event: postLoad }
+            

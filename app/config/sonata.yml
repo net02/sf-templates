@@ -16,6 +16,14 @@ sonata_admin:
     title_logo: bundles/eonesonatacustomization/images/project_logo.png
     options:
         #title_mode: 'both' #'single_image' or 'single_text' or 'both' (default)
+        
+    extensions:
+        eone.sonatacustomization.translatable.extension:
+            implements:
+                - Eone\SonataCustomizationBundle\Model\TranslatableInterface
+        eone.sonatacustomization.translating.extension:
+            implements:
+                - Eone\SonataCustomizationBundle\Model\TranslatingInterface
 
     templates:
         layout:  EoneSonataCustomizationBundle::eone_standard_layout.html.twig

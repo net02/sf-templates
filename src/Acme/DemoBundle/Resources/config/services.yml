@@ -1,0 +1,20 @@
+services:
+    acme.admin.demo.news:
+        class: Acme\DemoBundle\Admin\NewsAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Demo, label: "News" }
+        arguments:
+            - ~
+            - Acme\DemoBundle\Entity\News
+            - 'SonataAdminBundle:CRUD'
+        calls:
+            - [addChild, ["@acme.admin.demo.newsi18n"]]    
+            
+    acme.admin.demo.newsi18n:
+        class: Acme\DemoBundle\Admin\NewsI18nAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, show_in_dashboard: false }
+        arguments:
+            - ~
+            - Acme\DemoBundle\Entity\NewsI18n
+            - 'EoneSonataCustomizationBundle:TranslatingAdmin'
