@@ -61,7 +61,7 @@ project.admin.entityi18n:
 # Features
 * FOS features have been restricted to resetting only (see [routing.yml](app/config/routing.yml)) and use SonataAdmin theming.
 * **Translatable** and **Translating** interfaces for i18n entities, which will be hooked up by the respective admin extensions in Sonata
-* Use template **EoneSonataCustomizationBundle:CRUD:list_translatable.html.twig** to show translable fields in parent i18n entity List View
+* Use template **EoneSonataCustomizationBundle:CRUD:list_translatable.html.twig** to show translatable fields in parent i18n entity List View (see [example](src/Acme/DemoBundle/Admin/NewsAdmin.php#L23))
 * Extend [TranslatingController](src/Eone/SonataCustomizationBundle/Controller/TranslatingController.php) to enable localization of i18n entities in frontend actions
 
 # Todo
