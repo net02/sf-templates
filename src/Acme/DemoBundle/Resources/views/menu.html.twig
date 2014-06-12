@@ -1,0 +1,9 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+<style type="text/css">
+    li.current > a { font-weight: bold; }
+</style>
+    {{ knp_menu_render('main') }}
+    {{ knp_menu_render('sub') }}
+{% endblock %}

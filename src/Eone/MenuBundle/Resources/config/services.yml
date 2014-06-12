@@ -1,0 +1,24 @@
+services:
+    # menu generation
+    eone.menu.builder:
+        class: Eone\MenuBundle\Menu\MenuBuilder
+        arguments: ["@knp_menu.factory", "@doctrine.orm.entity_manager"]
+
+    eone.menu.menu.main:
+        class: Knp\Menu\MenuItem
+        factory_service: eone.menu.builder
+        factory_method: createMenuByAlias
+        arguments: ["main", "@request"]
+        scope: request
+        tags:
+            - { name: knp_menu.menu, alias: main }
+    
+    # menu admin
+    eone.admin.menu.node:
+        class: Eone\MenuBundle\Admin\MenuNodeAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Menu, label: "Item" }
+        arguments:
+            - ~
+            - Eone\MenuBundle\Entity\MenuNode
+            - 'SonataAdminBundle:CRUD'

@@ -1,0 +1,4 @@
+menu_demo:
+    pattern: /menu
+    defaults:
+        _controller: AcmeDemoBundle:Demo:menu

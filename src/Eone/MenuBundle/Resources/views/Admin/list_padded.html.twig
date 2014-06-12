@@ -1,0 +1,12 @@
+{% extends admin.getTemplate('base_list_field') %}
+
+{% block field%}
+{% spaceless %}
+    {% if object.depth > 0 %}
+        {% for i in 1..object.depth %}
+            {% if loop.last %}<span style="padding-right:18px">&gt;</span>{% else %}<span style="padding-right:20px">&nbsp;</span>{% endif %}
+        {% endfor %}
+    {% endif %}
+    <span>{{ value }}</span>
+{% endspaceless %}
+{% endblock %}

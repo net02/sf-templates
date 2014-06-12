@@ -3,6 +3,7 @@ Templates for sf2.4 projects
 * symfony2.4 and web/grafica folder, plus .htaccess tweaks
 * sonata admin bundle (via ORM) with FOS user and e-one customization
 * i18n integration with sonata admin
+* Doctrine ORM knp-menu integration
 
 # Installation
 Install via composer, then set up sf2 permissions
@@ -18,6 +19,10 @@ Update database schema and generate backend admin
 ```sh
 $ php app/console doctrine:schema:update --force
 $ php app/console fos:user:create admin admin@example.com admin --super-admin
+```
+Load demo fixtures (menu)
+```sh
+$ php app/console doctrine:fixtures:load --append --fixtures=src/Acme/DemoBundle/DataFixtures/ORM
 ```
 
 # Configuration reference
@@ -58,6 +63,8 @@ project.admin.entityi18n:
 </service>
 ```
 
+Customize Menu rendering with [KnpMenuBundle](https://github.com/KnpLabs/KnpMenuBundle/blob/1.1.x/Resources/doc/custom_renderer.md)
+
 # Features
 * FOS features have been restricted to resetting only (see [routing.yml](app/config/routing.yml)) and use SonataAdmin theming.
 * **Translatable** and **Translating** interfaces for i18n entities, which will be hooked up by the respective admin extensions in Sonata
@@ -65,4 +72,6 @@ project.admin.entityi18n:
 * Extend [TranslatingController](src/Eone/SonataCustomizationBundle/Controller/TranslatingController.php) to enable localization of i18n entities in frontend actions
 
 # Todo
+* [ ] Demo landing page
 * [ ] Enable choosing between separate (as of now) and inline translating (inside the edit page) of i18n entities
+* [ ] Better current-menu-item matching for absolute routes & hash uri

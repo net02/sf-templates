@@ -71,3 +71,9 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+    
+# Knp menu
+knp_menu:
+    providers:
+        builder_alias: false    # disable the builder-based provider
+        container_aware: true

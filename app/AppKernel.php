@@ -26,13 +26,15 @@ class AppKernel extends Kernel
             new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
+            new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
             
             // eOne
             new Eone\SonataCustomizationBundle\EoneSonataCustomizationBundle(),
+            new Eone\MenuBundle\EoneMenuBundle(),
             
-            // Application bundles
-            new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
+            // Demo bundles - get rid of them if you like
             new Acme\DemoBundle\AcmeDemoBundle(),
+            new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
