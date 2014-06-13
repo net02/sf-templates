@@ -65,4 +65,5 @@ project.admin.entityi18n:
 * Extend [TranslatingController](src/Eone/SonataCustomizationBundle/Controller/TranslatingController.php) to enable localization of i18n entities in frontend actions
 
 # Todo
+* [ ] *trans* the i18n Admin Extensions
 * [ ] Enable choosing between separate (as of now) and inline translating (inside the edit page) of i18n entities
