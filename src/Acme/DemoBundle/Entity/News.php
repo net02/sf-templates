@@ -98,15 +98,6 @@ class News extends Translatable {
         $this->translations = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-    /**
-     * Get component
-     *
-     * @return \Eone\NewsBundle\Entity\Component 
-     */
-    public function getComponent() {
-        return $this->component;
-    }
-
     public function __toString() {
         return $this->getTitle() ? (strlen($this->getTitle()) > 100 ? substr($this->getTitle(), 0, 100) . '...' : $this->getTitle()) : 'New News';
     }
