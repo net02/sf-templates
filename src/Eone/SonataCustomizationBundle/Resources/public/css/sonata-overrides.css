@@ -1,2 +1,3 @@
 body > .header .logo { overflow: hidden; }
 .form-box .alert { padding-left: 15px; margin-left: 0; }
+.sonata-ba-field.sonata-ba-field-standard-natural > select { width: 200px; }

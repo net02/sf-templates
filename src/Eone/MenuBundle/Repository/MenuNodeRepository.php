@@ -2,21 +2,33 @@
 
 namespace Eone\MenuBundle\Repository;
 
-use Doctrine\ORM\EntityRepository;
+use Gedmo\Tree\Entity\Repository\NestedTreeRepository;
+use Eone\MenuBundle\Entity\MenuNode;
 
-class MenuNodeRepository extends EntityRepository {
+class MenuNodeRepository extends NestedTreeRepository {
 
     /**
-     * Returns the direct childs of a menu, by alias
+     * Returns the root childs of a menu, by alias, or instantiates it.
      * @see \Eone\MenuBundle\Menu\MenuBuilder
      * 
      * @param string $alias
      * @return array
      */
-    public function findTopLevelByAlias($alias) {        
-        return $this->findBy(
-            ['root' => $alias, 'parent' => null],
-            ['position' => 'ASC']
-        );
+    public function findRootByAlias($alias) {
+        if (!$alias) {
+            return null;
+        }
+        
+        $root = $this->findOneBy(['name' => $alias, 'parent' => null]);
+        if (!$root) {
+            $root = new MenuNode();
+            $root->setName($alias);
+            
+            $em = $this->getEntityManager();
+            $em->persist($root);
+            $em->flush($root);
+        }
+        
+        return $root;
     }
 }

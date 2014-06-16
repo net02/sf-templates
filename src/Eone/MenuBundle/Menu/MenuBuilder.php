@@ -38,7 +38,7 @@ class MenuBuilder
         //todo: localizeit! active-ize it!
         $repo = $this->em->getRepository("EoneMenuBundle:MenuNode");        
         
-        foreach($repo->findTopLevelByAlias($alias) as $node) {
+        foreach($repo->findRootByAlias($alias)->getChildren() as $node) {
             $menu->addChild($this->factory->createFromArray($node->toArray()));
         }
         return $menu;

@@ -1,0 +1,21 @@
+{% extends 'SonataAdminBundle:CRUD:base_list_field.html.twig' %}
+{% block field %}
+    <div class="btn-group">
+    {% spaceless %}
+        {% if object.parent.children[0].id != object.id %}{# is not first #}
+            <a href="{{ admin.generateObjectUrl('moveUp', object) }}" class="btn btn-sm btn-default" title="{# 'action_edit'|trans({}, 'SonataAdminBundle') #}Up">
+                <i class="glyphicon glyphicon-arrow-up"></i>
+                {# 'action_edit'|trans({}, 'SonataAdminBundle') #}Up
+            </a> 
+        {% else %}
+                <span style="display: inline-block; width: 20px; height: 20px;"></span>
+        {% endif %}
+        {% if object.parent.children[object.parent.children|length - 1].id != object.id %}{# is not last #}
+            <a href="{{ admin.generateObjectUrl('moveDown', object) }}" class="btn btn-sm btn-default" title="{# 'action_edit'|trans({}, 'SonataAdminBundle') #}Down">
+                {# 'action_edit'|trans({}, 'SonataAdminBundle') #}Down
+                <i class="glyphicon glyphicon-arrow-down"></i>
+            </a>
+        {% endif %}                
+    {% endspaceless %}
+    </div>
+{% endblock %}

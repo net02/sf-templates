@@ -21,8 +21,10 @@ class EoneMenuExtension extends Extension
     {
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
-
+        
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-        $loader->load('services.yml');
+        $loader->load('services.yml');        
+        
+        $container->setParameter('eone.menu.configuration.admin_service', $config['admin_service']);
     }
 }

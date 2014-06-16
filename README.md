@@ -63,6 +63,31 @@ project.admin.entityi18n:
 </service>
 ```
 
+Menu [configuration](src/Eone/MenuBundle/Resources/config/services.yml#L7-15) with Doctrine ORM integration:
+```yml
+eone.menu.menu.main:
+    class: Knp\Menu\MenuItem
+    factory_service: eone.menu.builder
+    factory_method: createMenuByAlias
+    arguments: ["main", "@request"]
+    scope: request
+    tags:
+        - { name: knp_menu.menu, alias: main }
+        - { name: eone_menu.menu, alias: main }
+```
+```xml
+<service id="eone.menu.menu.main"
+         class="Knp\Menu\MenuItem"
+         scope="request"
+         factory-service="eone.menu.builder"
+         factory-method="createMenuByAlias">
+    <tag name="knp_menu.menu" alias="main"/>
+    <tag name="eone_menu.menu" alias="main"/>
+    <argument>main</argument>
+    <argument type="service" id="request" />
+</service>
+```
+
 Customize Menu rendering with [KnpMenuBundle](https://github.com/KnpLabs/KnpMenuBundle/blob/1.1.x/Resources/doc/custom_renderer.md)
 
 # Features
@@ -74,5 +99,6 @@ Customize Menu rendering with [KnpMenuBundle](https://github.com/KnpLabs/KnpMenu
 # Todo
 * [ ] Demo landing page
 * [ ] *trans* the i18n Admin Extensions
+* [ ] *trans* Menu Admin
 * [ ] Enable choosing between separate (as of now) and inline translating (inside the edit page) of i18n entities
 * [ ] Better current-menu-item matching for absolute routes & hash uri

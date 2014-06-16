@@ -2,8 +2,8 @@
 
 {% block field%}
 {% spaceless %}
-    {% if object.depth > 0 %}
-        {% for i in 1..object.depth %}
+    {% if object.depth > 1 %}
+        {% for i in 1..(object.depth-1) %}
             {% if loop.last %}<span style="padding-right:18px">&gt;</span>{% else %}<span style="padding-right:20px">&nbsp;</span>{% endif %}
         {% endfor %}
     {% endif %}

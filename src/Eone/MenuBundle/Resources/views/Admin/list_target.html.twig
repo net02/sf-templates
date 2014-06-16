@@ -1,0 +1,19 @@
+{% extends admin.getTemplate('base_list_field') %}
+
+{% block field %}
+{% spaceless %}
+    {% if object.uri %}
+        {% set url_address = object.uri %}
+    {% else %}
+        {% set parameters = object.routeParams|default([]) %}
+
+        {% if object.absolute|default(false) %}
+            {% set url_address = url(object.route, parameters) %}
+        {% else %}
+            {% set url_address = path(object.route, parameters) %}
+        {% endif %}
+    {% endif %}
+
+    <a href="{{ url_address }}">{{ url_address }}</a>
+{% endspaceless %}
+{% endblock %}

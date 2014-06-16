@@ -32,3 +32,9 @@ services:
         tags:
             - { name: doctrine.event_listener, event: postLoad }
             
+    # tree form type
+    eone.sonatacustomization.form.tree:
+        class: Eone\SonataCustomizationBundle\Form\Type\TreeType
+        tags:
+            - { name: form.type, alias: eone_sonata_tree }
+            

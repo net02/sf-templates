@@ -3,12 +3,14 @@
 namespace Eone\MenuBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Eone\MenuBundle\Entity\MenuNode
  *
- * @ORM\Table(name="menu_node",indexes={@ORM\Index(name="filter_idx", columns={"root"}), @ORM\Index(name="sort_idx", columns={"position"})})
+ * @ORM\Table(name="menu_node",indexes={@ORM\Index(name="filter_idx", columns={"root"}), @ORM\Index(name="sort_idx", columns={"lft"})})
  * @ORM\Entity(repositoryClass="Eone\MenuBundle\Repository\MenuNodeRepository")
+ * @Gedmo\Tree(type="nested")
  */
 class MenuNode {
 
@@ -24,19 +26,39 @@ class MenuNode {
      * @see \Eone\MenuBundle\Menu\MenuBuilder
      * 
      * @var string $root
+     * @Gedmo\TreeRoot
      * @ORM\Column(name="root", type="string")
      */
     private $root;
+
+    /**
+     * @Gedmo\TreeLeft
+     * @ORM\Column(name="lft", type="integer")
+     */
+    private $lft;
+
+    /**
+     * @Gedmo\TreeLevel
+     * @ORM\Column(name="lvl", type="integer")
+     */
+    private $lvl;
+
+    /**
+     * @Gedmo\TreeRight
+     * @ORM\Column(name="rgt", type="integer")
+     */
+    private $rgt;
     
     /**
+     * @Gedmo\TreeParent
      * @ORM\ManyToOne(targetEntity="MenuNode", inversedBy="children")
      * @ORM\JoinColumn(name="parent_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $parent;
 
     /**
-     * @ORM\OneToMany(targetEntity="MenuNode", mappedBy="parent")
-     * @ORM\OrderBy({"position" = "DESC"})
+     * @ORM\OneToMany(targetEntity="MenuNode", mappedBy="parent", cascade="persist")
+     * @ORM\OrderBy({"lft" = "ASC"})
      */
     private $children;
     
@@ -45,12 +67,6 @@ class MenuNode {
      * @ORM\Column(name="name", type="string", length=64)
      */
     private $name;
-    
-    /**
-     * @var string $position
-     * @ORM\Column(name="position", type="string")
-     */
-    private $position;
     
     /**
      * @var string $uri
@@ -90,7 +106,7 @@ class MenuNode {
      * @return string
      */
     public function __toString() {        
-        return $this->getName();
+        return $this->getName() ?: 'New Node';
     }
 
     /**
@@ -100,6 +116,79 @@ class MenuNode {
      */
     public function getId() {
         return $this->id;
+    }
+    
+    /**
+     * Set lvl
+     *
+     * @param integer $lvl
+     * @return MenuNode
+     */
+    public function setLvl($lvl) {
+        $this->lvl = $lvl;
+
+        return $this;
+    }
+
+    /**
+     * Get lvl
+     *
+     * @return integer 
+     */
+    public function getLvl() {
+        return $this->lvl;
+    }
+    
+    /**
+     * Returns node depth in the menu tree
+     * 
+     * @return int
+     */
+    public function getDepth()
+    {
+        return $this->getLvl();
+    }
+
+    /**
+     * Set lft
+     *
+     * @param integer $lft
+     * @return MenuNode
+     */
+    public function setLft($lft) {
+        $this->lft = $lft;
+
+        return $this;
+    }
+
+    /**
+     * Get lft
+     *
+     * @return integer 
+     */
+    public function getLft() {
+        return $this->lft;
+    }
+
+    /**
+     * Set rgt
+     *
+     * @param integer $rgt
+     * @return MenuNode
+     */
+    public function setRgt($rgt) {
+        $this->rgt = $rgt;
+
+        return $this;
+    }
+
+    /**
+     * Get rgt
+     *
+     * @return integer 
+     */
+    public function getRgt() {
+        return $this->rgt;
     }
 
     /**
@@ -197,40 +286,6 @@ class MenuNode {
     }
 
     /**
-     * Set position
-     *
-     * @param string $position
-     * @return MenuNode
-     */
-    public function setPosition($position)
-    {
-        $this->position = $position;
-    
-        return $this;
-    }
-
-    /**
-     * Get position
-     *
-     * @return string 
-     */
-    public function getPosition()
-    {
-        return $this->position;
-    }
-    
-    /**
-     * Returns node depth in the menu tree
-     * based off position string
-     * 
-     * @return int
-     */
-    public function getDepth()
-    {
-        return substr_count($this->getPosition(), '.');
-    }
-
-    /**
      * Set uri
      *
      * @param string $uri
@@ -319,9 +374,8 @@ class MenuNode {
     public function getAbsolute() {
         return $this->absolute;
     }
-    
+
     /**
-     * 
      * @return array
      */
     public function toArray() {        
@@ -336,7 +390,8 @@ class MenuNode {
             "route"             => $this->getRoute(),
             "routeParameters"   => $this->getRouteParams(),
             "routeAbsolute"     => $this->getAbsolute(),
-            "children"          => $children
+            "children"          => $children,
+            "extra"             => array("id" => $this->getId())
         );
     }
 }

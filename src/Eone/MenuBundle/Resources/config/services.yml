@@ -12,6 +12,7 @@ services:
         scope: request
         tags:
             - { name: knp_menu.menu, alias: main }
+            - { name: eone_menu.menu, alias: main }
     
     # menu admin
     eone.admin.menu.node:
@@ -21,4 +22,6 @@ services:
         arguments:
             - ~
             - Eone\MenuBundle\Entity\MenuNode
-            - 'SonataAdminBundle:CRUD'
+            - 'EoneMenuBundle:MenuNodeAdmin'
+        calls:
+            - [setRouter, ["@router"]]
