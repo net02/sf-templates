@@ -17,6 +17,12 @@ services:
         arguments: [%locales_available%]
     
     # i18n stuff
+    eone.sonatacustomization.before_controller:
+        class: Eone\SonataCustomizationBundle\Service\BeforeControllerListener
+        tags:
+            - { name: kernel.event_listener, event: kernel.controller, method: onKernelController}
+        arguments:    ["@security.context"]
+        
     nmn.locale:
         class:     Eone\SonataCustomizationBundle\Service\Locale
         arguments: [%locale%]
