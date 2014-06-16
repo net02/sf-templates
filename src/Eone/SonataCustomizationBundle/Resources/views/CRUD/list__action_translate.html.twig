@@ -1,5 +1,5 @@
 {% if admin.isGranted('EDIT', object) and admin.hasRoute('edit') %}
-    <a href="{{ actions.childAdmin.generateUrl('list', { 'id': object.id }) }}" class="btn btn-sm btn-default edit_link" title="{{ 'action_edit'|trans({}, 'SonataAdminBundle') }}">
+    <a href="{{ actions.childAdmin.generateUrl('list', { 'id': object.id }) }}" class="btn btn-sm btn-default" title="{# 'action_edit'|trans({}, 'SonataAdminBundle') #}Translate">
         <i class="glyphicon glyphicon-file"></i>
         {# 'action_edit'|trans({}, 'SonataAdminBundle') #}Translate
     </a>
