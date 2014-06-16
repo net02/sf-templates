@@ -38,7 +38,7 @@ class MenuNodeI18n extends Translating {
     /**
      * @var string
      *
-     * @ORM\Column(name="label", type="text")
+     * @ORM\Column(name="label", type="string")
      */
     private $label;
     
@@ -47,7 +47,16 @@ class MenuNodeI18n extends Translating {
      *
      * @ORM\Column(name="active", type="boolean")
      */
-    private $active;   
+    private $active = true;
+    
+    /**
+     * Translation-dependent route parameters (i.e.: slug).
+     * Will override already existing routeParams
+     * 
+     * @var array $translatedParams
+     * @ORM\Column(name="route_params", type="json_array", nullable=true)
+     */
+    private $translatedParams;
     
     /**
      * Get id
@@ -64,8 +73,8 @@ class MenuNodeI18n extends Translating {
      * @param string $title
      * @return MenuNodeI18n
      */
-    public function setLabel($title) {
-        $this->title = $title;
+    public function setLabel($label) {
+        $this->label = $label;
 
         return $this;
     }
@@ -144,5 +153,28 @@ class MenuNodeI18n extends Translating {
      */
     public function getActive() {
         return $this->active;
+    }
+
+    /**
+     * Set translatedParams
+     *
+     * @param array $translatedParams
+     * @return MenuNode
+     */
+    public function setTranslatedParams(array $translatedParams)
+    {
+        $this->translatedParams = $translatedParams;
+    
+        return $this;
+    }
+
+    /**
+     * Get translatedParams
+     *
+     * @return array 
+     */
+    public function getTranslatedParams()
+    {
+        return $this->translatedParams;
     }
 }

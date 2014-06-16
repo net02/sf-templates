@@ -25,3 +25,13 @@ services:
             - 'EoneMenuBundle:MenuNodeAdmin'
         calls:
             - [setRouter, ["@router"]]
+            - [addChild, ["@eone.admin.menu.nodei18n"]]
+            
+    eone.admin.menu.nodei18n:
+        class: Eone\MenuBundle\Admin\MenuNodeI18nAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, show_in_dashboard: false }
+        arguments:
+            - ~
+            - Eone\MenuBundle\Entity\MenuNodeI18n
+            - 'EoneSonataCustomizationBundle:TranslatingAdmin'

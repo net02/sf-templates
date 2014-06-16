@@ -28,7 +28,7 @@ class MenuNode extends Translatable {
      * 
      * @var string $root
      * @Gedmo\TreeRoot
-     * @ORM\Column(name="root", type="string")
+     * @ORM\Column(name="root", type="integer")
      */
     private $root;
 
@@ -95,7 +95,7 @@ class MenuNode extends Translatable {
     private $absolute = false;
 
     /**
-     * @ORM\OneToMany(targetEntity="NewsI18n", mappedBy="translatable", cascade={"persist", "remove"}, orphanRemoval=true) 
+     * @ORM\OneToMany(targetEntity="MenuNodeI18n", mappedBy="translatable", cascade={"persist", "remove"}, orphanRemoval=true) 
      */
     protected $translations;
 
@@ -383,8 +383,9 @@ class MenuNode extends Translatable {
     }
 
     public function getTranslationObject() {
-        return new MenuNodeI18n();
-    }    
+        $i18n = new MenuNodeI18n();
+        return $i18n->setTranslatable($this);
+    }
 
     /**
      * @return array
@@ -392,14 +393,17 @@ class MenuNode extends Translatable {
     public function toArray() {        
         $children = array();
         foreach ($this->getChildren() as $child) {
-            $children[] = $child->toArray();
+            if ($child->getActive()) {
+                $children[] = $child->toArray();
+            }
         }
         
         return array(
             "name"              => $this->getName(),
+            "label"             => $this->getLabel(),
             "uri"               => $this->getUri(),
             "route"             => $this->getRoute(),
-            "routeParameters"   => $this->getRouteParams(),
+            "routeParameters"   => array_merge($this->getRouteParams(), $this->getTranslatedParams()),
             "routeAbsolute"     => $this->getAbsolute(),
             "children"          => $children,
             "extra"             => array("id" => $this->getId())

@@ -71,6 +71,8 @@ class MenuNodeAdmin extends Admin
             ->with('Target')
                 ->add('uri', null, array(), array('help' => 'Relative or absolute url'))
                 ->add('route', null, array(), array('help' => 'If set, <strong>uri</strong> is ignored'))
+                // hidden by default
+//                ->add('routeParams', 'eone_key_value', array('label' => 'Route parameters', 'required' => false))
                 ->add('absolute', null, array('label' => 'Generate absolute url from Route', 'required' => false))
             ->end();
     }

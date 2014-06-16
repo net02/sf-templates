@@ -35,11 +35,12 @@ class MenuBuilder
         $menu = $this->factory->createItem('root');
         $menu->setCurrentUri($request->getRequestUri());
         
-        //todo: localizeit! active-ize it!
         $repo = $this->em->getRepository("EoneMenuBundle:MenuNode");        
         
         foreach($repo->findRootByAlias($alias)->getChildren() as $node) {
-            $menu->addChild($this->factory->createFromArray($node->toArray()));
+            if ($node->getActive()) {
+                $menu->addChild($this->factory->createFromArray($node->toArray()));
+            }
         }
         return $menu;
     }
