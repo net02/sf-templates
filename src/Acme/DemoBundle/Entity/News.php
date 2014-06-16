@@ -103,6 +103,7 @@ class News extends Translatable {
     }
 
     public function getTranslationObject() {
-        return new NewsI18n();
+        $i18n = new NewsI18n();
+        return $i18n->setTranslatable($this);
     }
 }
