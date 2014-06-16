@@ -37,6 +37,12 @@ sonata_admin:
             CREATE: CREATE
             VIEW: VIEW
             DELETE: DELETE
+            
+sonata_core:
+    flashmessage:
+        error:
+            # bootstrap 3
+            css_class: danger
         
 # FOS User w/ Sonata
 fos_user:
