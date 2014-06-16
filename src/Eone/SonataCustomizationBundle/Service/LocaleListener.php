@@ -1,4 +1,5 @@
 <?php
+
 namespace Eone\SonataCustomizationBundle\Service;
 
 use Eone\SonataCustomizationBundle\Service\Locale;

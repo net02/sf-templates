@@ -27,6 +27,7 @@ sonata_admin:
 
     templates:
         layout:  EoneSonataCustomizationBundle::eone_standard_layout.html.twig
+        list:    EoneSonataCustomizationBundle:CRUD:list.html.twig
 
     security:
         handler: sonata.admin.security.handler.role
