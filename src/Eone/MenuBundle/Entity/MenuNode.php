@@ -4,6 +4,7 @@ namespace Eone\MenuBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Eone\SonataCustomizationBundle\Model\Translatable;
 
 /**
  * Eone\MenuBundle\Entity\MenuNode
@@ -12,7 +13,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * @ORM\Entity(repositoryClass="Eone\MenuBundle\Repository\MenuNodeRepository")
  * @Gedmo\Tree(type="nested")
  */
-class MenuNode {
+class MenuNode extends Translatable {
 
     /**
      * @ORM\Column(name="id", type="integer")
@@ -94,10 +95,16 @@ class MenuNode {
     private $absolute = false;
 
     /**
+     * @ORM\OneToMany(targetEntity="NewsI18n", mappedBy="translatable", cascade={"persist", "remove"}, orphanRemoval=true) 
+     */
+    protected $translations;
+
+    /**
      * Constructor
      */
     public function __construct() {
         $this->children = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->translations = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -374,6 +381,10 @@ class MenuNode {
     public function getAbsolute() {
         return $this->absolute;
     }
+
+    public function getTranslationObject() {
+        return new MenuNodeI18n();
+    }    
 
     /**
      * @return array
