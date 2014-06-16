@@ -30,7 +30,7 @@ class NewsI18n extends Translating {
 
     /**
      * @ORM\ManyToOne(targetEntity="News", inversedBy="translations")
-     * @ORM\JoinColumn(name="page_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="news_id", referencedColumnName="id")
      */
     protected $translatable;
 
