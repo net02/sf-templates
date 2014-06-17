@@ -32,7 +32,7 @@ class DemoController extends TranslatingController
             $node = $repo->findOneById($current->getExtra('node_id'));
             
             if ($node) {
-                $service = $this->container->get('nmn.locale');
+                $service = $this->container->get('eone.locale');
                 foreach ($this->container->getParameter('locales_available') as $loc => $name) {
                     $service->setLocale($loc);
                     $node->setLocale($service);
