@@ -28,6 +28,6 @@ class TranslatingController extends Controller
             $this->get('session')->set('_locale', $locale); 
         }
         $request->setLocale($locale);
-        $this->get('nmn.locale')->setLocale($locale);
+        $this->get('eone.locale')->setLocale($locale);
     }
 }

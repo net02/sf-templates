@@ -23,18 +23,18 @@ services:
             - { name: kernel.event_listener, event: kernel.controller, method: onKernelController}
         arguments:    ["@security.context"]
         
-    nmn.locale:
+    eone.locale:
         class:     Eone\SonataCustomizationBundle\Service\Locale
         arguments: [%locale%]
         
-    nmn.locale_listener:
+    eone.locale.listener:
         class:     Eone\SonataCustomizationBundle\Service\LocaleListener
-        arguments: ["@nmn.locale"]
+        arguments: ["@eone.locale"]
         tags:
             - { name: kernel.event_listener, event: kernel.request }
-    nmn.set_i18n:
+    eone.locale.set_i18n:
         class:     Eone\SonataCustomizationBundle\Service\EntityListener
-        arguments: ["@nmn.locale"]
+        arguments: ["@eone.locale"]
         tags:
             - { name: doctrine.event_listener, event: postLoad }
             
