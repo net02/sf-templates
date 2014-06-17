@@ -9,14 +9,23 @@ use Eone\MenuBundle\Entity\MenuNode;
 
 class DemoController extends TranslatingController
 {
+    /**
+     * Default route (usually a homepage). Set null to use '/'
+     */
+    const HOMEPAGE_ROUTE = 'home';
+    
     public function menuAction() {
         return $this->render('AcmeDemoBundle::menu.html.twig');
     }
     
-    public function switchAction(Request $request, ItemInterface $current = null) {
-        // default route (usually a homepage) or null to use '/'
-        $default_route = 'home';
-        
+    /**
+     * Instantiate the language switch menu (to be served in a twig controller)
+     * 
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param \Knp\Menu\ItemInterface $current
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function switchAction(Request $request, ItemInterface $current = null) {        
         $nodes = array();
         if ($current) {
             $repo = $this->getDoctrine()->getManager()->getRepository('EoneMenuBundle:MenuNode');
@@ -46,7 +55,7 @@ class DemoController extends TranslatingController
                 $nodes[$loc] = $new
                     ->setName($name)
                     ->setUri('/')
-                    ->setRoute($default_route)
+                    ->setRoute(self::HOMEPAGE_ROUTE)
                     ->setRouteParams(['_locale' => $loc]);
             }
         }
