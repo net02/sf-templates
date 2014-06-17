@@ -388,13 +388,22 @@ class MenuNode extends Translatable {
     }
 
     /**
+     * The children are exported until the specified depth:
+     *      null: no limit
+     *      0: no children
+     *      1: only direct children
+     *      ...
+     * 
      * @return array
      */
-    public function toArray() {        
+    public function toArray($depth = null) {        
         $children = array();
-        foreach ($this->getChildren() as $child) {
-            if ($child->getActive()) {
-                $children[] = $child->toArray();
+        if (is_null($depth) || $depth > 0) {
+            $childDepth = (null === $depth) ? null : $depth - 1;
+            foreach ($this->getChildren() as $child) {
+                if ($child->getActive()) {
+                    $children[] = $child->toArray($childDepth);
+                }
             }
         }
         
@@ -403,10 +412,10 @@ class MenuNode extends Translatable {
             "label"             => $this->getLabel(),
             "uri"               => $this->getUri(),
             "route"             => $this->getRoute(),
-            "routeParameters"   => array_merge($this->getRouteParams(), $this->getTranslatedParams()),
+            "routeParameters"   => array_merge($this->getRouteParams(), $this->getTranslatedParams() ?: array()),
             "routeAbsolute"     => $this->getAbsolute(),
             "children"          => $children,
-            "extra"             => array("id" => $this->getId())
+            "extras"            => array("node_id" => $this->getId())
         );
     }
 }

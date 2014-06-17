@@ -35,7 +35,7 @@ class MenuBuilder
         $menu = $this->factory->createItem('root');
         $menu->setCurrentUri($request->getRequestUri());
         
-        $repo = $this->em->getRepository("EoneMenuBundle:MenuNode");        
+        $repo = $this->em->getRepository("EoneMenuBundle:MenuNode");
         
         foreach($repo->findRootByAlias($alias)->getChildren() as $node) {
             if ($node->getActive()) {
@@ -43,5 +43,37 @@ class MenuBuilder
             }
         }
         return $menu;
+    }
+    
+    public function createLanguageSwitchMenu(array $nodes, Request $request) {
+        $menu = $this->factory->createItem('root');
+        
+        foreach($nodes as $loc => $node) {
+            $child = $this->factory->createFromArray($node->toArray(0));
+            if ($request->getLocale() === $loc) {
+                $child->setCurrent(true);
+            }
+            // remove unnecessary "_locale" parameter from query string
+            $child->setUri(self::removeQuerystringVar($child->getUri(), '_locale'));
+            $menu->addChild($child);
+        }
+        return $menu;
+    }
+    
+    public static function removeQuerystringVar($url, $key) {
+        $parts = parse_url($url);
+        $qs = isset($parts['query']) ? $parts['query'] : '';
+        $base = $qs ? mb_substr($url, 0, mb_strpos($url, '?')) : $url; // all of URL except QS
+
+        parse_str($qs, $qsParts);
+        unset($qsParts[$key]);
+        $newQs = rtrim(http_build_query($qsParts), '=');
+
+        if ($newQs) {
+            return $base . '?' . $newQs;
+        } 
+        else {
+            return $base;
+        }
     }
 }

@@ -1,4 +1,9 @@
-menu_demo:
+home:
     pattern: /menu
+    defaults:
+        _controller: AcmeDemoBundle:Demo:menu
+
+menu_demo:
+    pattern: /menu/{_locale}
     defaults:
         _controller: AcmeDemoBundle:Demo:menu
