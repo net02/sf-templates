@@ -114,7 +114,7 @@ class MenuNodeI18n extends Translating {
     /**
      * Set translatable
      *
-     * @param \Eone\NewsBundle\Entity\MenuNode $translatable
+     * @param \Eone\MenuBundle\Entity\MenuNode $translatable
      * @return MenuNodeI18n
      */
     public function setTranslatable(TranslatableInterface $translatable = null)
@@ -127,7 +127,7 @@ class MenuNodeI18n extends Translating {
     /**
      * Get translatable
      *
-     * @return \Eone\NewsBundle\Entity\MenuNode 
+     * @return \Eone\MenuBundle\Entity\MenuNode 
      */
     public function getTranslatable()
     {
@@ -159,7 +159,7 @@ class MenuNodeI18n extends Translating {
      * Set translatedParams
      *
      * @param array $translatedParams
-     * @return MenuNode
+     * @return MenuNodeI18n
      */
     public function setTranslatedParams(array $translatedParams)
     {
