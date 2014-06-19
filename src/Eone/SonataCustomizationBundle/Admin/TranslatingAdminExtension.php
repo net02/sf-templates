@@ -29,10 +29,16 @@ class TranslatingAdminExtension extends AdminExtension {
     }
     
     public function configureListFields(ListMapper $listMapper) {
+        $current = array();
+        if ($listMapper->has("_action")) {
+            $current = $listMapper->get("_action")->getOption('actions');
+            $listMapper->remove("_action");
+        }
+        
         $listMapper
             ->addIdentifier('locale', 'string')
             ->add('_action', 'actions', array(
-                'actions' => array('edit' => [], 'delete' => []), 
+                'actions' => array_merge(array('edit' => [], 'delete' => []), $current),
                 'label' => 'Actions'
             ))
         ;
