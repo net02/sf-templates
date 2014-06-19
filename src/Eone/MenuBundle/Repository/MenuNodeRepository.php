@@ -3,7 +3,6 @@
 namespace Eone\MenuBundle\Repository;
 
 use Gedmo\Tree\Entity\Repository\NestedTreeRepository;
-use Eone\MenuBundle\Entity\MenuNode;
 
 class MenuNodeRepository extends NestedTreeRepository {
 
@@ -21,7 +20,8 @@ class MenuNodeRepository extends NestedTreeRepository {
         
         $root = $this->findOneBy(['name' => $alias, 'parent' => null]);
         if (!$root) {
-            $root = new MenuNode();
+            $class = $this->getClassName();
+            $root = new $class();
             $root->setName($alias);
             
             $em = $this->getEntityManager();
