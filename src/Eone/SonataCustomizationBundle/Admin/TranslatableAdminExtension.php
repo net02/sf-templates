@@ -46,11 +46,16 @@ class TranslatableAdminExtension extends AdminExtension {
     }
     
     public function configureListFields(ListMapper $listMapper) {
+        $current = array();
+        if ($listMapper->has("_action")) {
+            $current = $listMapper->get("_action")->getOption('actions');
+            $listMapper->remove("_action");
+        }
         // waiting for PR merge to enable child admin urls in action list
 //        if ($translatingAdmin = $this->getTranslatingChildAdmin($listMapper->getAdmin())) {
 //            $listMapper
 //                ->add('_action', 'actions', array(
-//                    'actions' => array('edit' => [], 'translate' => ['template' => 'EoneSonataCustomizationBundle:CRUD:list__action_translate.html.twig', 'childAdmin' => $translatingAdmin], 'delete' => []),
+//                    'actions' => array_merge(array('edit' => [], 'translate' => ['template' => 'EoneSonataCustomizationBundle:CRUD:list__action_translate.html.twig', 'childAdmin' => $translatingAdmin], 'delete' => []), $current),
 //                    'label' => 'Actions'
 //                ))
 //            ;
@@ -58,7 +63,7 @@ class TranslatableAdminExtension extends AdminExtension {
 //        else {
             $listMapper
                 ->add('_action', 'actions', array(
-                    'actions' => array('edit' => [], 'delete' => []),
+                    'actions' => array_merge(array('edit' => [], 'delete' => []), $current),
                     'label' => 'Actions'
                 ))
             ;
