@@ -32,7 +32,8 @@
         "sonata-project/user-bundle": "2.3.x-dev",
         "doctrine/doctrine-fixtures-bundle": "2.2.*",
         "stof/doctrine-extensions-bundle": "1.1.x-dev",
-        "egeloen/ckeditor-bundle": "2.3.*@dev"
+        "egeloen/ckeditor-bundle": "2.3.*@dev",
+        "sonata-project/media-bundle": "2.3.x-dev"
     },
     "scripts": {
         "post-install-cmd": [

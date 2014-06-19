@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d5774e1943bcb473df6081ee1c4484b4",
+    "hash": "f1daa9249bb78801d0fd73d081a17869",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -855,17 +855,17 @@
         },
         {
             "name": "friendsofsymfony/rest-bundle",
-            "version": "1.3.1",
+            "version": "1.4.0",
             "target-dir": "FOS/RestBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSRestBundle.git",
-                "reference": "ed28a056225d911de4be4686326339a1a51b7fa9"
+                "reference": "d37f4410e6a97e81c720840b56e35c3a44942723"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/ed28a056225d911de4be4686326339a1a51b7fa9",
-                "reference": "ed28a056225d911de4be4686326339a1a51b7fa9",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/d37f4410e6a97e81c720840b56e35c3a44942723",
+                "reference": "d37f4410e6a97e81c720840b56e35c3a44942723",
                 "shasum": ""
             },
             "require": {
@@ -892,7 +892,8 @@
             "suggest": {
                 "jms/serializer-bundle": "Add support for advanced serialization capabilities, recommended, requires 0.12.*",
                 "sensio/framework-extra-bundle": "Add support for route annotations and the view response listener",
-                "symfony/serializer": "Add support for basic serialization capabilities and xml decoding, requires ~2.2"
+                "symfony/serializer": "Add support for basic serialization capabilities and xml decoding, requires ~2.2",
+                "symfony/validator": "Add support for validation capabilities in the ParamFetcher, requires ~2.2"
             },
             "type": "symfony-bundle",
             "extra": {
@@ -929,21 +930,21 @@
             "keywords": [
                 "rest"
             ],
-            "time": "2014-03-11 15:28:34"
+            "time": "2014-06-04 13:11:41"
         },
         {
             "name": "friendsofsymfony/user-bundle",
-            "version": "v1.3.3",
+            "version": "v1.3.4",
             "target-dir": "FOS/UserBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSUserBundle.git",
-                "reference": "0fc044447ca41acc73d424a6a90d1b9f7fa25d7b"
+                "reference": "2deeca89551c28ae27c19bad36861d732e69217e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/0fc044447ca41acc73d424a6a90d1b9f7fa25d7b",
-                "reference": "0fc044447ca41acc73d424a6a90d1b9f7fa25d7b",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/2deeca89551c28ae27c19bad36861d732e69217e",
+                "reference": "2deeca89551c28ae27c19bad36861d732e69217e",
                 "shasum": ""
             },
             "require": {
@@ -997,7 +998,7 @@
             "keywords": [
                 "User management"
             ],
-            "time": "2013-09-23 08:24:12"
+            "time": "2014-06-13 14:51:01"
         },
         {
             "name": "gedmo/doctrine-extensions",
@@ -1833,16 +1834,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.9.1",
+            "version": "1.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "65026b610f8c19e61d7242f600530677b0466aac"
+                "reference": "25b16e801979098cb2f120e697bfce454b18bf23"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/65026b610f8c19e61d7242f600530677b0466aac",
-                "reference": "65026b610f8c19e61d7242f600530677b0466aac",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/25b16e801979098cb2f120e697bfce454b18bf23",
+                "reference": "25b16e801979098cb2f120e697bfce454b18bf23",
                 "shasum": ""
             },
             "require": {
@@ -1870,7 +1871,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.9.x-dev"
+                    "dev-master": "1.10.x-dev"
                 }
             },
             "autoload": {
@@ -1897,7 +1898,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2014-04-24 13:29:03"
+            "time": "2014-06-04 16:30:04"
         },
         {
             "name": "nelmio/api-doc-bundle",
@@ -2347,16 +2348,16 @@
         },
         {
             "name": "sonata-project/block-bundle",
-            "version": "2.2.11",
+            "version": "2.2.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataBlockBundle.git",
-                "reference": "1e6adfaa27f46d50973e6f14150e0585f876dd1e"
+                "reference": "ba4888c69745416da8ab0f7e7a64e04401cd2fbe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataBlockBundle/zipball/1e6adfaa27f46d50973e6f14150e0585f876dd1e",
-                "reference": "1e6adfaa27f46d50973e6f14150e0585f876dd1e",
+                "url": "https://api.github.com/repos/sonata-project/SonataBlockBundle/zipball/ba4888c69745416da8ab0f7e7a64e04401cd2fbe",
+                "reference": "ba4888c69745416da8ab0f7e7a64e04401cd2fbe",
                 "shasum": ""
             },
             "require": {
@@ -2407,20 +2408,20 @@
                 "block",
                 "sonata"
             ],
-            "time": "2014-02-21 14:01:24"
+            "time": "2014-06-13 10:26:57"
         },
         {
             "name": "sonata-project/cache",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/cache.git",
-                "reference": "7c91e7fd1ca5be4273b09388650709bff31d8966"
+                "reference": "9e9fa5840b5ffbfaa6fb4fa7d5e8db4940303a41"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/cache/zipball/7c91e7fd1ca5be4273b09388650709bff31d8966",
-                "reference": "7c91e7fd1ca5be4273b09388650709bff31d8966",
+                "url": "https://api.github.com/repos/sonata-project/cache/zipball/9e9fa5840b5ffbfaa6fb4fa7d5e8db4940303a41",
+                "reference": "9e9fa5840b5ffbfaa6fb4fa7d5e8db4940303a41",
                 "shasum": ""
             },
             "require-dev": {
@@ -2467,7 +2468,7 @@
                 "mongodb",
                 "redis"
             ],
-            "time": "2014-05-12 08:55:48"
+            "time": "2014-06-04 14:53:49"
         },
         {
             "name": "sonata-project/core-bundle",
@@ -3219,16 +3220,16 @@
         },
         {
             "name": "swiftmailer/swiftmailer",
-            "version": "v5.2.0",
+            "version": "v5.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "043e336b871f17a117f76ef8e190eddfc04c8d48"
+                "reference": "2b9af56cc676c338d52fca4c657e5bdff73bb7af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/043e336b871f17a117f76ef8e190eddfc04c8d48",
-                "reference": "043e336b871f17a117f76ef8e190eddfc04c8d48",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/2b9af56cc676c338d52fca4c657e5bdff73bb7af",
+                "reference": "2b9af56cc676c338d52fca4c657e5bdff73bb7af",
                 "shasum": ""
             },
             "require": {
@@ -3269,7 +3270,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2014-05-08 08:11:19"
+            "time": "2014-06-13 11:44:54"
         },
         {
             "name": "symfony/assetic-bundle",
@@ -3617,62 +3618,6 @@
             "time": "2014-05-22 21:04:05"
         },
         {
-            "name": "tilleuls/ckeditor-sonata-media-bundle",
-            "version": "dev-master",
-            "target-dir": "CoopTilleuls/Bundle/CKEditorSonataMediaBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/coopTilleuls/CoopTilleulsCKEditorSonataMediaBundle.git",
-                "reference": "1284ea35fa2c0d0efc46b883bbcdb36c5efbd1c4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/coopTilleuls/CoopTilleulsCKEditorSonataMediaBundle/zipball/1284ea35fa2c0d0efc46b883bbcdb36c5efbd1c4",
-                "reference": "1284ea35fa2c0d0efc46b883bbcdb36c5efbd1c4",
-                "shasum": ""
-            },
-            "require": {
-                "sonata-project/media-bundle": "2.3.*@dev",
-                "symfony/symfony": "~2.2"
-            },
-            "suggest": {
-                "egeloen/ckeditor-bundle": "for easy Symfony integration"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.3.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "CoopTilleuls\\Bundle\\CKEditorSonataMediaBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Kévin Dunglas",
-                    "email": "kevin@les-tilleuls.coop",
-                    "homepage": "http://dunglas.fr"
-                }
-            ],
-            "description": "Integrates SonataMediaBundle with CKEditor",
-            "homepage": "http://les-tilleuls.coop",
-            "keywords": [
-                "CKEditor",
-                "file",
-                "image",
-                "media",
-                "sonata",
-                "upload"
-            ],
-            "time": "2014-06-05 12:46:18"
-        },
-        {
             "name": "twig/extensions",
             "version": "v1.0.1",
             "source": {
@@ -3883,7 +3828,8 @@
         "sonata-project/datagrid-bundle": 20,
         "sonata-project/user-bundle": 20,
         "stof/doctrine-extensions-bundle": 20,
-        "egeloen/ckeditor-bundle": 20
+        "egeloen/ckeditor-bundle": 20,
+        "sonata-project/media-bundle": 20
     },
     "platform": {
         "php": ">=5.4"
