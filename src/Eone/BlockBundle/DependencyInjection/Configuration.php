@@ -1,6 +1,6 @@
 <?php
 
-namespace Eone\SonataCustomizationBundle\DependencyInjection;
+namespace Eone\BlockBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -18,16 +18,12 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('eone_sonatacustomization');
+        $rootNode = $treeBuilder->root('eone_block');
 
         $rootNode
             ->children()
-                ->arrayNode('templates')
-                    ->addDefaultsIfNotSet()
-                    ->children()
-                        ->scalarNode('browser')->defaultValue('EoneSonataCustomizationBundle:Ckeditor:browser.html.twig')->cannotBeEmpty()->end()
-                        ->scalarNode('upload')->defaultValue('EoneSonataCustomizationBundle:Ckeditor:upload.html.twig')->cannotBeEmpty()->end()
-                ->end()
+                ->scalarNode('base_template')->defaultValue('EoneBlockBundle:Block:block_orm.html.twig')->end()
+                ->scalarNode('block_class')->defaultValue('Eone\BlockBundle\Entity\Block')->cannotBeEmpty()->end()
             ->end();
 
         return $treeBuilder;

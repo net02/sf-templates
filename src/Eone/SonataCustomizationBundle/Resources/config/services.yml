@@ -49,4 +49,9 @@ services:
         class: Eone\SonataCustomizationBundle\Form\Type\KeyValueType
         tags:
             - { name: form.type, alias: eone_key_value }
-            
+    
+    # ckeditor extension
+    eone.sonatacustomization.ckeditor.extension:
+        class: Eone\SonataCustomizationBundle\Admin\CkeditorAdminExtension
+        tags:
+            - { name: sonata.admin.extension, target: sonata.media.admin.media }

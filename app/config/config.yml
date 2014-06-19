@@ -91,3 +91,12 @@ knp_menu:
     providers:
         builder_alias: false    # disable the builder-based provider
         container_aware: true
+
+# CKEditor
+ivory_ck_editor:
+    default_config: default
+    configs:
+        default:
+            enterMode: 1 # Enter Mode = <p>
+            allowedContent: true  # don't mess around with classes etc
+            toolbar: [["Format","Bold","Italic","Underline","-","NumberedList","BulletedList","-","Link","Unlink","-","Undo","Redo","-","Cut","Copy","PasteText"], ["Image","Source","Maximize"]]

@@ -78,3 +78,42 @@ twig:
     form:
         resources:
             - 'SonataCoreBundle:Form:datepicker.html.twig'
+            
+# Media
+sonata_media:
+    default_context: default
+    db_driver: doctrine_orm
+    contexts:
+        default:  # the default context is mandatory
+            providers:
+                - sonata.media.provider.image
+            formats:
+                standard:   { width: 600 , quality: 80}
+        uploads:  
+            providers:
+                - sonata.media.provider.image
+            formats:
+                standard:   { width: 600 , quality: 80}
+    cdn:
+        server:
+            path: /uploads/media
+    filesystem:
+        local:
+            directory:  %kernel.root_dir%/../web/uploads/media
+            create:     false
+            
+ivory_ck_editor:
+    configs:
+        default:
+            filebrowserBrowseRoute: admin_sonata_media_media_ckeditor_browser
+            filebrowserImageBrowseRoute: admin_sonata_media_media_ckeditor_browser
+            filebrowserImageBrowseRouteParameters:
+                provider: sonata.media.provider.image
+                context: uploads
+            filebrowserUploadRoute: admin_sonata_media_media_ckeditor_upload
+            filebrowserUploadRouteParameters:
+                provider: sonata.media.provider.file
+            filebrowserImageUploadRoute: admin_sonata_media_media_ckeditor_upload
+            filebrowserImageUploadRouteParameters:
+                provider: sonata.media.provider.image
+                context: uploads

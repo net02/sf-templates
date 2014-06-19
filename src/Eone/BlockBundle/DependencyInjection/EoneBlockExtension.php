@@ -1,6 +1,6 @@
 <?php
 
-namespace Eone\SonataCustomizationBundle\DependencyInjection;
+namespace Eone\BlockBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
@@ -12,7 +12,7 @@ use Symfony\Component\DependencyInjection\Loader;
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class EoneSonataCustomizationExtension extends Extension
+class EoneBlockExtension extends Extension
 {
     /**
      * {@inheritDoc}
@@ -25,12 +25,7 @@ class EoneSonataCustomizationExtension extends Extension
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
         
-        if (!$container->hasParameter('locales_available')) {
-            throw new \RuntimeException('Parameter "locales_available" must be set.');
-        }
-        // prepare locale requirements for routing purposes
-        $container->setParameter('eone.locale.requirements', implode('|', array_keys($container->getParameter('locales_available'))));
-        
-        $container->setParameter('eone.sonatacustomization.configuration.templates', $config['templates']);
+        $container->setParameter('eone.block.configuration.base_template', $config['base_template']);
+        $container->setParameter('eone.block.configuration.block_class', $config['block_class']);
     }
 }

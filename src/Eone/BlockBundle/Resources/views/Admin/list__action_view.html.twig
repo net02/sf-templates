@@ -1,0 +1,6 @@
+{% if object.uri %}
+    <a target="_blank" href="{{ "%s#%s"|format(object.uri, object.alias) }}" class="btn btn-sm btn-default" title="{# 'action_edit'|trans({}, 'SonataAdminBundle') #}View">
+        <i class="glyphicon glyphicon-eye-open"></i>
+        {# 'action_edit'|trans({}, 'SonataAdminBundle') #}View
+    </a>
+{% endif %}

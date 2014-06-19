@@ -14,6 +14,16 @@ class DemoController extends TranslatingController
      */
     const HOMEPAGE_ROUTE = 'home';
     
+    public function entryAction(Request $request)
+    {
+        return $this->redirect($this->generateUrl(self::HOMEPAGE_ROUTE, ['_locale' => $request->getLocale()]));
+    }
+    
+    public function homeAction()
+    {
+        return $this->render('AcmeDemoBundle::home.html.twig');
+    }
+    
     public function menuAction() {
         return $this->render('AcmeDemoBundle::menu.html.twig');
     }

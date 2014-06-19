@@ -4,6 +4,8 @@ Templates for sf2.4 projects
 * sonata admin bundle (via ORM) with FOS user and e-one customization
 * i18n integration with sonata admin
 * Doctrine ORM knp-menu integration
+* Doctrine ORM SonataBlock integration
+* ckeditor form type with SonataMedia integration (w/o the whole SonataFormattingBundle)
 
 # Installation
 Install via composer, then set up sf2 permissions
@@ -23,6 +25,12 @@ $ php app/console fos:user:create admin admin@example.com admin --super-admin
 Load demo fixtures (menu)
 ```sh
 $ php app/console doctrine:fixtures:load --append --fixtures=src/Acme/DemoBundle/DataFixtures/ORM
+```
+Create the upload directory
+```sh
+$ mkdir web/uploads
+$ mkdir web/uploads/media
+$ chmod -R 0777 web/uploads
 ```
 
 # Configuration reference
@@ -97,9 +105,9 @@ Customize Menu rendering with [KnpMenuBundle](https://github.com/KnpLabs/KnpMenu
 * Extend [TranslatingController](src/Eone/SonataCustomizationBundle/Controller/TranslatingController.php) to enable localization of i18n entities in frontend actions
 
 # Todo
-* [ ] Demo landing page
 * [ ] *trans* the i18n Admin Extensions
 * [ ] *trans* Menu Admin
+* [ ] *trans* Block Admin
 * [ ] Enable choosing between separate (as of now) and inline translating (inside the edit page) of i18n entities
 * [ ] Better current-menu-item matching for absolute routes & hash uri
 * [ ] Better key-value form templating

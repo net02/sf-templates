@@ -1,0 +1,45 @@
+services:
+    # twig shortcut
+    eone.block.twig.extension:
+        class: Eone\BlockBundle\Twig\Extension\BlockExtension
+        public: false
+        arguments: ["block.orm", "@sonata.block.templating.helper", "@request_stack"]
+        tags:
+            - { name: twig.extension }
+    
+    # entity repository
+    eone.block.repository:
+        class: Doctrine\ORM\EntityRepository
+        factory_service: doctrine
+        factory_method: getRepository
+        arguments: [%eone.block.configuration.block_class%]
+        calls:
+            - [setLocale, ["@eone.locale"]]
+    
+    # listener
+    eone.block.orm.listener:
+        class: Eone\BlockBundle\Event\OrmBlockListener
+        arguments: ["@eone.block.repository", %eone.block.configuration.base_template%]
+        tags:
+            - { name: kernel.event_listener, event: sonata.block.event.block.orm, method: onBlock}
+            
+    # block admin
+    eone.admin.block:
+        class: Eone\BlockBundle\Admin\BlockAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Cms, label: "Blocks" }
+        arguments:
+            - ~
+            - Eone\BlockBundle\Entity\Block
+            - 'SonataAdminBundle:CRUD'
+        calls:
+            - [addChild, ["@eone.admin.blocki18n"]]
+            
+    eone.admin.blocki18n:
+        class: Eone\BlockBundle\Admin\BlockI18nAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, show_in_dashboard: false }
+        arguments:
+            - ~
+            - Eone\BlockBundle\Entity\BlockI18n
+            - 'EoneSonataCustomizationBundle:TranslatingAdmin'

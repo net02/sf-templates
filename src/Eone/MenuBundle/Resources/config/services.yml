@@ -18,7 +18,7 @@ services:
     eone.admin.menu.node:
         class: Eone\MenuBundle\Admin\MenuNodeAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: Menu, label: "Item" }
+            - { name: sonata.admin, manager_type: orm, group: Cms, label: "Menu nodes" }
         arguments:
             - ~
             - Eone\MenuBundle\Entity\MenuNode

@@ -1,7 +1,12 @@
+entrypoint:
+    pattern:  /
+    defaults: { _controller: AcmeDemoBundle:Demo:entry }
+
 home:
-    pattern: /menu
-    defaults:
-        _controller: AcmeDemoBundle:Demo:menu
+    pattern:  /{_locale}
+    defaults: { _controller: AcmeDemoBundle:Demo:home }
+    requirements:
+        _locale:  %eone.locale.requirements%
 
 menu_demo:
     pattern: /menu/{_locale}
