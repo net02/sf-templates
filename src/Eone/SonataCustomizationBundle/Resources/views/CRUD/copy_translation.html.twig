@@ -1,0 +1,39 @@
+{% extends base_template %}
+
+{% block actions %}
+<li>{% include 'SonataAdminBundle:Button:list_button.html.twig' %}</li>
+<li>{% include 'SonataAdminBundle:Button:edit_button.html.twig' %}</li>
+<li>{% include 'SonataAdminBundle:Button:create_button.html.twig' %}</li>
+{% endblock %}
+
+{% block tab_menu %}{{ knp_menu_render(admin.sidemenu(action), {'currentClass' : 'active'}, 'list') }}{% endblock %}
+
+{% block content %}
+<div>
+    <div class="box box-success">
+        <form method="POST" action="{{ admin.generateObjectUrl('copy_translation', object) }}">        
+            <div class="box-header">
+                <h3 class="box-title">Copy Translation</h3>
+            </div>
+            <div class="box-body">
+            {% if form.locales.vars.choices|length %}
+                {{ form_rest(form) }}
+            {% else %}
+                There are no languages untranslated. Delete some before copying.
+            {% endif %}
+            </div>
+            <div class="box-footer clearfix">
+            {% if form.locales.vars.choices|length %}
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="hidden" name="_sonata_csrf_token" value="{{ csrf_token }}">
+                <button type="submit" class="btn btn-success"><i class="fa fa-copy"></i> {{ 'btn_create'|trans({}, 'SonataAdminBundle') }}</button>
+                        {{ 'delete_or'|trans({}, 'SonataAdminBundle') }}
+            {% endif %}
+                <a class="btn btn-default" href="{{ admin.generateUrl('list') }}">
+                    <i class="glyphicon glyphicon-list"></i>
+                    {{ 'link_action_list'|trans({}, 'SonataAdminBundle') }}</a>            
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
