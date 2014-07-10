@@ -30,6 +30,7 @@ class EoneSonataCustomizationExtension extends Extension
         }
         // prepare locale requirements for routing purposes
         $container->setParameter('eone.locale.requirements', implode('|', array_keys($container->getParameter('locales_available'))));
+        $container->setParameter('eone.locale.locales', array_keys($container->getParameter('locales_available')));
         
         $container->setParameter('eone.sonatacustomization.configuration.templates', $config['templates']);
     }
