@@ -8,6 +8,7 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Validator\ErrorElement;
 use Sonata\AdminBundle\Exception\ModelManagerException;
+use Sonata\AdminBundle\Route\RouteCollection;
 
 class TranslatingAdminExtension extends AdminExtension {
     
@@ -38,10 +39,14 @@ class TranslatingAdminExtension extends AdminExtension {
         $listMapper
             ->addIdentifier('locale', 'string')
             ->add('_action', 'actions', array(
-                'actions' => array_merge(array('edit' => [], 'delete' => []), $current),
+                'actions' => array_merge(array('edit' => [], 'copy' => ['template' => 'EoneSonataCustomizationBundle:CRUD:list__action_copy_translation.html.twig'], 'delete' => []), $current),
                 'label' => 'Actions'
             ))
         ;
+    }
+    
+    public function configureRoutes(AdminInterface $admin, RouteCollection $collection) {
+        $collection->add('copy_translation');
     }
     
     public function validate(AdminInterface $admin, ErrorElement $errorElement, $object) {
@@ -78,5 +83,18 @@ class TranslatingAdminExtension extends AdminExtension {
     public function prePersist(AdminInterface $admin, $object) {
         $parent = $admin->getParent()->getSubject();
         $object->setTranslatable($parent);
+    }
+
+    public function copyTranslation(AdminInterface $admin, $object, array $locales) {
+        $parentAdmin = $admin->getParent();
+        $parent = $parentAdmin->getSubject();
+        
+        foreach ($locales as $loc) {
+            $clone = clone $object;
+            $clone->setLocale($loc);
+            $parent->addTranslation($clone);
+        }
+        
+        $parentAdmin->update($parent);
     }
 }

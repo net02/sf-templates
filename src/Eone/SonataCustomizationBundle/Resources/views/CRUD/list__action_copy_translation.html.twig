@@ -1,0 +1,6 @@
+{% if admin.isGranted('CREATE') and admin.hasRoute('create') %}
+    <a href="{{ admin.generateObjectUrl('copy_translation', object) }}" class="btn btn-sm btn-default" title="{# 'action_edit'|trans({}, 'SonataAdminBundle') #}Copy">
+        <i class="fa fa-copy"></i>
+        {# 'action_edit'|trans({}, 'SonataAdminBundle') #}Copy
+    </a>
+{% endif %}
