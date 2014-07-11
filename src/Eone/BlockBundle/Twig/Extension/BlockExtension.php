@@ -40,7 +40,8 @@ class BlockExtension extends \Twig_Extension
 
     public function getBlockEvent($alias, $content = null, array $params = array())
     {
-        $options = array_merge($params, ['alias' => $alias, 'content' => $content, 'request' => $this->requestStack->getCurrentRequest()]);
+        // we strip excessign whitespaces/newlines since it's feeding a html editor
+        $options = array_merge($params, ['alias' => $alias, 'content' => preg_replace('/\s+/', ' ', $content), 'request' => $this->requestStack->getCurrentRequest()]);
         return $this->blockHelper->renderEvent($this->eventName, $options);
     }
 
