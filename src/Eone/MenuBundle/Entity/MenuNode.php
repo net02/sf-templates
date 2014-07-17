@@ -409,7 +409,7 @@ class MenuNode extends Translatable {
         
         return array(
             "name"              => $this->getName(),
-            "label"             => $this->getLabel(),
+            /** @Ignore */"label" => $this->getLabel(),
             "uri"               => $this->getUri(),
             "route"             => $this->getRoute(),
             "routeParameters"   => array_merge($this->getRouteParams(), $this->getTranslatedParams() ?: array()),
