@@ -1,6 +1,6 @@
-{# add eone_key_value_widget #}
+{# add eone_key_value_widget, override collection #}
 
-{% extends 'SonataAdminBundle:Form:form_admin_fields.html.twig' %}
+{% extends 'SonataDoctrineORMAdminBundle:Form:form_admin_fields.html.twig' %}
 
 {% block eone_key_value_widget_row %}
 {% spaceless %}
@@ -39,3 +39,40 @@
     </div>
 {% endspaceless %}
 {% endblock eone_key_value_widget %}
+
+{% block collection_widget_row %}
+{% spaceless %}
+    <div class="sonata-collection-row well">
+        {{ form_row(child) }}
+        {% if allow_delete %}
+            <a href="#" class="btn btn-sm btn-default sonata-collection-delete" title="{# 'action_edit'|trans({}, 'SonataAdminBundle') #}Remove">
+                <i class="glyphicon glyphicon-minus-sign"></i>
+                {# 'action_edit'|trans({}, 'SonataAdminBundle') #}Remove
+            </a>
+        {% endif %}
+    </div>
+{% endspaceless %}
+{% endblock %}
+
+{% block collection_widget %}
+{% spaceless %}
+    {% if prototype is defined %}
+        {% set child = prototype %}
+        {% set attr = attr|merge({'data-prototype': block('eone_key_value_widget_row'), 'data-prototype-name': prototype.vars.name, 'class': attr.class|default('') }) %}
+    {% endif %}
+    <div {{ block('widget_container_attributes') }}>
+        {% for child in form %}
+            {{ block('collection_widget_row') }}
+        {% endfor %}
+        {{ form_rest(form) }}
+        {% if allow_add %}
+            <div>
+                <a href="#" class="btn btn-sm btn-default sonata-collection-add" title="{# 'action_edit'|trans({}, 'SonataAdminBundle') #}Add">
+                    <i class="glyphicon glyphicon-plus-sign"></i>
+                    {# 'action_edit'|trans({}, 'SonataAdminBundle') #}Add
+                </a>
+            </div>
+        {% endif %}
+    </div>
+{% endspaceless %}
+{% endblock collection_widget %}
