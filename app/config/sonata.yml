@@ -101,6 +101,10 @@ sonata_media:
         local:
             directory:  %kernel.root_dir%/../web/uploads/media
             create:     false
+    # use THUMBNAIL_OUTBOUND for generation (see http://imagine.readthedocs.org/en/v0.2-0/image.html )
+#    resizer:
+#        simple:
+#            mode: outbound
             
 ivory_ck_editor:
     configs:

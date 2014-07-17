@@ -1,0 +1,27 @@
+services:
+    sonata.media.admin.media:
+        class: %sonata.media.admin.media.class%
+        tags:
+            - { name: sonata.admin, manager_type: orm, show_in_dashboard: false, label_catalogue: %sonata.media.admin.media.translation_domain% , label_translator_strategy: sonata.admin.label.strategy.underscore }
+        arguments:
+            - ~
+            - %sonata.media.admin.media.entity%
+            - %sonata.media.admin.media.controller%
+            - "@sonata.media.pool"
+        calls:
+            - [setModelManager, ["@sonata.media.admin.media.manager"]]
+            - [setTranslationDomain, [%sonata.media.admin.media.translation_domain%]]
+            - [setTemplates, [{ inner_list_row: SonataMediaBundle:MediaAdmin:inner_row_media.html.twig , base_list_field: SonataAdminBundle:CRUD:base_list_flat_field.html.twig , list: SonataMediaBundle:MediaAdmin:list.html.twig , edit: SonataMediaBundle:MediaAdmin:edit.html.twig }]]
+            
+    sonata.media.admin.gallery:
+        class: %sonata.media.admin.gallery.class%
+        tags:
+            - { name: sonata.admin, manager_type: orm, show_in_dashboard: false, label_catalogue: %sonata.media.admin.media.translation_domain% , label_translator_strategy: sonata.admin.label.strategy.underscore }
+        arguments:
+            - ~
+            - %sonata.media.admin.gallery.entity%
+            - %sonata.media.admin.gallery.controller%
+            - "@sonata.media.pool"
+        calls:
+            - [setTranslationDomain, [%sonata.media.admin.media.translation_domain%]]
+            - [setTemplates, [{ list: SonataMediaBundle:GalleryAdmin:list.html.twig }]]

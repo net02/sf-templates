@@ -103,6 +103,8 @@ Customize Menu rendering with [KnpMenuBundle](https://github.com/KnpLabs/KnpMenu
 * **Translatable** and **Translating** interfaces for i18n entities, which will be hooked up by the respective admin extensions in Sonata
 * Use template **EoneSonataCustomizationBundle:CRUD:list_translatable.html.twig** to show translatable fields in parent i18n entity List View (see [example](src/Acme/DemoBundle/Admin/NewsAdmin.php#L23))
 * Extend [TranslatingController](src/Eone/SonataCustomizationBundle/Controller/TranslatingController.php) to enable localization of i18n entities in frontend actions
+* ApplicationSonataMedia configuration is [yml-enabled](src/Application/Sonata/MediaBundle/Resources/config/services.yml), and has been hidden in dashboard by default
+* Added the 'eone_localized_media_type' to use in Admin forms instead of 'sonata_media_type'
 
 # Todo
 * [ ] *trans* the i18n Admin Extensions
@@ -111,3 +113,4 @@ Customize Menu rendering with [KnpMenuBundle](https://github.com/KnpLabs/KnpMenu
 * [ ] Enable choosing between separate (as of now) and inline translating (inside the edit page) of i18n entities
 * [ ] Better current-menu-item matching for absolute routes & hash uri
 * [ ] Better key-value form templating
+* [ ] Add a 'eone_localized_media_type' example (to Acme/News entity?)

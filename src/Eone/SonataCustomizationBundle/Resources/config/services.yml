@@ -55,3 +55,10 @@ services:
         class: Eone\SonataCustomizationBundle\Admin\CkeditorAdminExtension
         tags:
             - { name: sonata.admin.extension, target: sonata.media.admin.media }
+    
+    # localized media form type
+    eone.sonatacustomization.form.type.localized_media:
+        class: Eone\SonataCustomizationBundle\Form\Type\LocalizedMediaType
+        arguments: ["@sonata.media.pool", %sonata.media.media.class%]
+        tags:
+            - { name: form.type, alias: eone_localized_media_type }
