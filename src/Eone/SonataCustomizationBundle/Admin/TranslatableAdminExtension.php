@@ -37,7 +37,7 @@ class TranslatableAdminExtension extends AdminExtension {
                     ->add(
                         'translations',
                         'sonata_type_collection',
-                        array('label' => false, 'type_options' => array('delete' => false), 'btn_add' => false),
+                        array(/** @Ignore */'label' => false, 'type_options' => array('delete' => false), 'btn_add' => false),
                         array('edit' => 'inline')
                     )
                 ->end()

@@ -13,7 +13,7 @@ class KeyValueType extends CollectionType
     {
         if ($options['allow_add'] && $options['prototype']) {
             $prototype = $builder
-                ->create($options['prototype_name'], 'form', array_replace(array('label' => false), $options['options']))
+                ->create($options['prototype_name'], 'form', array_replace(array(/** @Ignore */'label' => false), $options['options']))
                 ->add('key', 'text')
                 ->add('value', $options['type']);
             $builder->setAttribute('prototype', $prototype->getForm());

@@ -36,7 +36,7 @@ class KeyValueListener extends ResizeFormListener
             $sub = $form->getConfig()->getFormFactory()->createNamed($count, 'form', array('key' => $key, 'value' => $value), array_replace(array(
                 'property_path' => '['.$count.']',
                 'auto_initialize' => false,
-                'label' => false
+                /** @Ignore */'label' => false
             ), $this->options));
             $sub->add('key', 'text');
             $sub->add('value', $this->type);
@@ -75,7 +75,7 @@ class KeyValueListener extends ResizeFormListener
                     $sub = $form->getConfig()->getFormFactory()->createNamed($name, 'form', array('key' => $value['key'], 'value' => $value['value']), array_replace(array(
                         'property_path' => '['.$name.']',
                         'auto_initialize' => false,
-                        'label' => false
+                        /** @Ignore */'label' => false
                     ), $this->options));
                     $sub->add('key', 'text');
                     $sub->add('value', $this->type);
