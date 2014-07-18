@@ -7,3 +7,5 @@ body > .header .logo { overflow: hidden; }
 .form-box .alert { padding-left: 15px; margin-left: 0; }
 .sonata-ba-field.sonata-ba-field-standard-natural > select { width: 200px; }
 .sonata-collection-row.well .sonata-collection-delete { float: none; }
+label.unlink-widget { padding-left: 40px; font-weight: normal; }
+label.unlink-widget+div { display: inline-block; padding-left: 10px; }

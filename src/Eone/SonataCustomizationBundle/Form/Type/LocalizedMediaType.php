@@ -22,7 +22,8 @@ class LocalizedMediaType extends MediaType {
         
         $builder->remove('unlink');
         $builder->add('unlink', 'checkbox', array(
-            'group_class' => 'unlink-widget',
+            'attr'     => array('class' => 'unlink-widget'),
+            'label_attr' => array('class' => 'unlink-widget '),
             'mapped'   => false,
             'data'     => false,
             'required' => false,
