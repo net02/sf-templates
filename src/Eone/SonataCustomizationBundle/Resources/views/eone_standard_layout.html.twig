@@ -8,6 +8,11 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('bundles/eonesonatacustomization/css/sonata-overrides.css') }}" />
 {% endblock %}
     
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('bundles/eonesonatacustomization/js/sonata-overrides.js') }}" ></script>
+{% endblock %}
+    
 {% block side_bar_after_nav %}
     <p class="text-center small" style="border-top: 1px solid #444444; padding-top: 10px"><a href="http://www.e-one.it/" rel="noreferrer" target="_blank">by <strong>e-one</strong></a></p>
 {% endblock %}

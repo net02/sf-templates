@@ -1,3 +1,8 @@
+.form-box .header { background: #FF982F; font-weight: 400; }
+.input-group[class*=col-] { padding-left: 15px; padding-right: 15px; }
+.form-group.has-error .form-group .form-control { border-color: #ccc !important; }
+.form-group.has-error .form-group label { color: #333; }
+.has-error .form-group .input-group-addon { color: #555; border-color: #ccc; }
 body > .header .logo { overflow: hidden; }
 .form-box .alert { padding-left: 15px; margin-left: 0; }
 .sonata-ba-field.sonata-ba-field-standard-natural > select { width: 200px; }
