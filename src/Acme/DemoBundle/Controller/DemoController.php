@@ -42,7 +42,7 @@ class DemoController extends TranslatingController
             $node = $repo->findOneById($current->getExtra('node_id'));
             
             if ($node) {
-                $service = $this->container->get('eone.locale');
+                $service = clone $this->get('eone.locale');
                 foreach ($this->container->getParameter('locales_available') as $loc => $name) {
                     $service->setLocale($loc);
                     $node->setLocale($service);
@@ -64,9 +64,9 @@ class DemoController extends TranslatingController
                 $new = new MenuNode();
                 $nodes[$loc] = $new
                     ->setName($name)
-                    ->setUri('/')
-                    ->setRoute(self::HOMEPAGE_ROUTE)
-                    ->setRouteParams(['_locale' => $loc]);
+                    ->setUri(null)
+                    ->setRoute($request->attributes->get('_route', self::HOMEPAGE_ROUTE))
+                    ->setRouteParams(array_merge($request->attributes->get('_route_params', array()), ['_locale' => $loc]));
             }
         }
         
