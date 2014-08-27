@@ -53,8 +53,8 @@ class MenuBuilder
             if ($request->getLocale() === $loc) {
                 $child->setCurrent(true);
             }
-            // remove unnecessary "_locale" parameter from query string
-            $child->setUri(self::removeQuerystringVar($child->getUri(), '_locale'));
+            // remove unnecessary parameters from query string            
+            $child->setUri(self::removeQuerystringVar($child->getUri(), ['_locale', '_format', '_controller']));
             $menu->addChild($child);
         }
         return $menu;
@@ -66,7 +66,12 @@ class MenuBuilder
         $base = $qs ? mb_substr($url, 0, mb_strpos($url, '?')) : $url; // all of URL except QS
 
         parse_str($qs, $qsParts);
-        unset($qsParts[$key]);
+        if (!is_array($key)) {
+            $key = array($key);
+        }
+        foreach ($key as $k) {
+            unset($qsParts[$k]);
+        }
         $newQs = rtrim(http_build_query($qsParts), '=');
 
         if ($newQs) {

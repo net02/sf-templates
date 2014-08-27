@@ -51,23 +51,22 @@ class TranslatableAdminExtension extends AdminExtension {
             $current = $listMapper->get("_action")->getOption('actions');
             $listMapper->remove("_action");
         }
-        // waiting for PR merge to enable child admin urls in action list
-//        if ($translatingAdmin = $this->getTranslatingChildAdmin($listMapper->getAdmin())) {
-//            $listMapper
-//                ->add('_action', 'actions', array(
-//                    'actions' => array_merge(array('edit' => [], 'translate' => ['template' => 'EoneSonataCustomizationBundle:CRUD:list__action_translate.html.twig', 'childAdmin' => $translatingAdmin], 'delete' => []), $current),
-//                    'label' => 'Actions'
-//                ))
-//            ;
-//        }
-//        else {
+        if ($translatingAdmin = $this->getTranslatingChildAdmin($listMapper->getAdmin())) {
+            $listMapper
+                ->add('_action', 'actions', array(
+                    'actions' => array_merge(array('edit' => [], 'translate' => ['template' => 'EoneSonataCustomizationBundle:CRUD:list__action_translate.html.twig', 'childAdmin' => $translatingAdmin], 'delete' => []), $current),
+                    'label' => 'Actions'
+                ))
+            ;
+        }
+        else {
             $listMapper
                 ->add('_action', 'actions', array(
                     'actions' => array_merge(array('edit' => [], 'delete' => []), $current),
                     'label' => 'Actions'
                 ))
             ;
-//        }
+        }
     }
     
     public function configureTabMenu(AdminInterface $admin, MenuItemInterface $menu, $action, AdminInterface $childAdmin = null) {
