@@ -100,6 +100,7 @@ Customize Menu rendering with [KnpMenuBundle](https://github.com/KnpLabs/KnpMenu
 * [ ] Demo landing page
 * [ ] *trans* the i18n Admin Extensions
 * [ ] *trans* Menu Admin
+* [ ] Update to knp-menu ~2.0
 * [ ] Enable choosing between separate (as of now) and inline translating (inside the edit page) of i18n entities
 * [ ] Better current-menu-item matching for absolute routes & hash uri
 * [ ] Better key-value form templating
