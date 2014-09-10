@@ -99,7 +99,8 @@ class News extends Translatable {
     }
 
     public function __toString() {
-        return $this->getTitle() ? (strlen($this->getTitle()) > 100 ? substr($this->getTitle(), 0, 100) . '...' : $this->getTitle()) : 'New News';
+        $strip = strip_tags($this->getTitle());
+        return $this->getTitle() ? (strlen($strip) > 80 ? substr($strip, 0, 80) . '...' : $strip) : 'New News';
     }
 
     public function getTranslationObject() {
