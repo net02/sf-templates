@@ -1,5 +1,5 @@
 {% extends admin.getTemplate('base_list_field') %}
 
 {% block field%}
-    {{ field_description.getValue(object.getTranslation) }}
+    {{ field_description.getValue(object.getTranslation)|striptags|truncate(180, true, ' ...')|raw }}
 {% endblock %}
