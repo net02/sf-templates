@@ -23,6 +23,7 @@ class Configuration implements ConfigurationInterface
         $rootNode
             ->children()
                 ->scalarNode('append')->defaultValue(true)->end()
+                ->scalarNode('media_route')->defaultValue("eone_seo_media")->end()
                 ->arrayNode('sitemap')
                     ->useAttributeAsKey('service')
                     ->prototype('array')

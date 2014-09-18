@@ -26,6 +26,7 @@ class EoneSeoExtension extends Extension
         $loader->load('services.yml');
         
         $container->setParameter('eone.seo.append_title', $config['append']);
+        $container->setParameter('eone.seo.media_route', $config['media_route']);
         
         $container->setParameter('eone.seo.sitemap.config', $config['sitemap']);        
     }

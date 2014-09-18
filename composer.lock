@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6ac01d8f984c13c12e9ff359f4930bf6",
+    "hash": "ee9d772daa88a07791a9070c28cf8ff8",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -2932,12 +2932,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataMediaBundle.git",
-                "reference": "7a21a95d8fc3acd60124c996417fb3eb65c7252d"
+                "reference": "574d5935068c34646595ed35ae2d7cfb92900718"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataMediaBundle/zipball/7a21a95d8fc3acd60124c996417fb3eb65c7252d",
-                "reference": "7a21a95d8fc3acd60124c996417fb3eb65c7252d",
+                "url": "https://api.github.com/repos/sonata-project/SonataMediaBundle/zipball/574d5935068c34646595ed35ae2d7cfb92900718",
+                "reference": "574d5935068c34646595ed35ae2d7cfb92900718",
                 "shasum": ""
             },
             "require": {
@@ -3010,38 +3010,37 @@
                 "vimeo",
                 "youtube"
             ],
-            "time": "2014-08-21 13:41:39"
+            "time": "2014-09-17 09:36:08"
         },
         {
             "name": "sonata-project/notification-bundle",
-            "version": "2.2.7",
+            "version": "2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataNotificationBundle.git",
-                "reference": "edd955d502baa5cfad185f48ce82ad718d610e8b"
+                "reference": "4ff286549fa62fa9ef81064b1bccedf2f7f86bb5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataNotificationBundle/zipball/edd955d502baa5cfad185f48ce82ad718d610e8b",
-                "reference": "edd955d502baa5cfad185f48ce82ad718d610e8b",
+                "url": "https://api.github.com/repos/sonata-project/SonataNotificationBundle/zipball/4ff286549fa62fa9ef81064b1bccedf2f7f86bb5",
+                "reference": "4ff286549fa62fa9ef81064b1bccedf2f7f86bb5",
                 "shasum": ""
             },
             "require": {
                 "friendsofsymfony/rest-bundle": "~1.1",
                 "jms/serializer-bundle": "~0.11",
                 "nelmio/api-doc-bundle": "~2.4",
-                "sonata-project/core-bundle": "~2.2@dev,>2.2.4",
-                "sonata-project/doctrine-extensions": "1.*",
-                "sonata-project/easy-extends-bundle": "2.1.*",
-                "symfony/symfony": "~2.1"
+                "sonata-project/core-bundle": "~2.2,>2.2.4",
+                "sonata-project/doctrine-extensions": "~1.0",
+                "sonata-project/easy-extends-bundle": "~2.1",
+                "symfony/symfony": "~2.3"
             },
             "require-dev": {
-                "guzzle/guzzle": "3.*",
-                "liip/monitor": "~1.0",
-                "liip/monitor-bundle": "~1.0",
-                "sonata-project/core-bundle": "dev-master",
-                "sonata-project/doctrine-orm-admin-bundle": "2.2.*",
-                "videlalvaro/php-amqplib": "2.0.*"
+                "guzzle/guzzle": "~3.0",
+                "liip/monitor-bundle": "~2.0",
+                "sonata-project/core-bundle": "~2.2@dev,>2.2.4",
+                "sonata-project/doctrine-orm-admin-bundle": "~2.2",
+                "videlalvaro/php-amqplib": "~2.0"
             },
             "suggest": {
                 "guzzle/guzzle": "3.*",
@@ -3052,7 +3051,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.2.x-dev"
+                    "dev-master": "2.3.x-dev"
                 }
             },
             "autoload": {
@@ -3082,7 +3081,70 @@
                 "page",
                 "sonata"
             ],
-            "time": "2014-08-12 16:16:34"
+            "time": "2014-09-11 12:33:15"
+        },
+        {
+            "name": "sonata-project/seo-bundle",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sonata-project/SonataSeoBundle.git",
+                "reference": "b0ae33a121ab8beb2a517224b778d46fd50faca8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sonata-project/SonataSeoBundle/zipball/b0ae33a121ab8beb2a517224b778d46fd50faca8",
+                "reference": "b0ae33a121ab8beb2a517224b778d46fd50faca8",
+                "shasum": ""
+            },
+            "require": {
+                "sonata-project/exporter": ">=1.2.2,<2.0",
+                "symfony/symfony": "~2.1",
+                "twig/twig": "*"
+            },
+            "require-dev": {
+                "guzzle/guzzle": "3.*",
+                "sonata-project/admin-bundle": "~2.2",
+                "sonata-project/block-bundle": "~2.2,>=2.2.7"
+            },
+            "suggest": {
+                "guzzle/guzzle": "3.*",
+                "knplabs/knp-menu-bundle": "Used by the BreadcrumbMenuBuilder",
+                "sonata-project/block-bundle": "Allows you to use SEO friendly blocks"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Sonata\\SeoBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Thomas Rabaix",
+                    "email": "thomas.rabaix@sonata-project.org",
+                    "homepage": "http://sonata-project.org"
+                },
+                {
+                    "name": "Sonata Community",
+                    "homepage": "https://github.com/sonata-project/SonataSeoBundle/contributors"
+                }
+            ],
+            "description": "Symfony SonataSeoBundle",
+            "homepage": "http://sonata-project.org/bundles/seo",
+            "keywords": [
+                "seo",
+                "sonata"
+            ],
+            "time": "2014-08-13 08:07:54"
         },
         {
             "name": "sonata-project/user-bundle",
@@ -3824,6 +3886,7 @@
         "sonata-project/datagrid-bundle": 20,
         "sonata-project/user-bundle": 20,
         "stof/doctrine-extensions-bundle": 20,
+        "sonata-project/seo-bundle": 20,
         "egeloen/ckeditor-bundle": 20,
         "sonata-project/media-bundle": 20
     },

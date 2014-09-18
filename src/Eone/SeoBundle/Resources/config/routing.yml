@@ -1,3 +1,11 @@
+# Seo media custom urls
+eone_seo_media:
+    pattern: /uploads/{format}/{id}/{filename}
+    defaults: { _controller: EoneSeoBundle:Proxy:view }
+    requirements:
+        filename: .+
+        id: \d+
+        
 # XML Sitemap
 eone_seo_sitemap_index:
     pattern: /sitemap.{_format}

@@ -22,6 +22,13 @@ services:
         tags:
             - { name: twig.extension }
         arguments: ["@sonata.seo.page", "@event_dispatcher", "@request_stack"]
+    
+    eone.seo_media.twig.extension:
+        class: Eone\SeoBundle\Twig\Extension\SeoMediaExtension
+        public: false
+        tags:
+            - { name: twig.extension }
+        arguments: ["@sonata.media.pool", "@sonata.media.manager.media", "@router", %eone.seo.media_route%]
             
     # default listener
     eone.seo.event_listener:
