@@ -24,6 +24,9 @@ sonata_admin:
         eone.sonatacustomization.translating.extension:
             implements:
                 - Eone\SonataCustomizationBundle\Model\TranslatingInterface
+        eone.seo.extension:
+            implements:
+                - Eone\SeoBundle\Model\SeoAwareInterface
 
     templates:
         layout:  EoneSonataCustomizationBundle::eone_standard_layout.html.twig

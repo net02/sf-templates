@@ -2,6 +2,10 @@ acme_demo:
     resource: "@AcmeDemoBundle/Resources/config/routing.yml"
     prefix:   /
 
+eone_seo:
+    resource: "@EoneSeoBundle/Resources/config/routing.yml"
+    prefix:   /
+
 eone_sonata_customization:
     resource: "@EoneSonataCustomizationBundle/Resources/config/routing.yml"
     prefix:   /

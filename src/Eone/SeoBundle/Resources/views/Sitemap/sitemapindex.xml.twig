@@ -1,0 +1,12 @@
+{% spaceless %}
+<?xml version='1.0' encoding='UTF-8'?>
+<sitemapindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/siteindex.xsd"
+         xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{% for map in maps %}
+    <sitemap>
+        <loc>{{ app_domain ~ path('eone_seo_sitemap_lang', {'_locale': map, '_format': 'xml'})}}</loc>
+    </sitemap>
+{% endfor %}
+</sitemapindex>
+{% endspaceless %}

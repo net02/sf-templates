@@ -1,0 +1,14 @@
+sonata_seo:
+    page:
+        title: %project.name%
+        separator: " | "
+        metas:
+            property:
+                'og:site_name': %project.name%
+        head:
+            prefix: 'og: http://ogp.me/ns#'
+            
+eone_seo:
+    sitemap:
+        main:
+            service: eone.menu.menu.main

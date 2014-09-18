@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8aa85c147a85216bb2fe9d69de61eefe",
+    "hash": "7150e99231d43731595c8a7161a387a6",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -2569,6 +2569,69 @@
             "time": "2014-03-31 09:18:53"
         },
         {
+            "name": "sonata-project/seo-bundle",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sonata-project/SonataSeoBundle.git",
+                "reference": "b0ae33a121ab8beb2a517224b778d46fd50faca8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sonata-project/SonataSeoBundle/zipball/b0ae33a121ab8beb2a517224b778d46fd50faca8",
+                "reference": "b0ae33a121ab8beb2a517224b778d46fd50faca8",
+                "shasum": ""
+            },
+            "require": {
+                "sonata-project/exporter": ">=1.2.2,<2.0",
+                "symfony/symfony": "~2.1",
+                "twig/twig": "*"
+            },
+            "require-dev": {
+                "guzzle/guzzle": "3.*",
+                "sonata-project/admin-bundle": "~2.2",
+                "sonata-project/block-bundle": "~2.2,>=2.2.7"
+            },
+            "suggest": {
+                "guzzle/guzzle": "3.*",
+                "knplabs/knp-menu-bundle": "Used by the BreadcrumbMenuBuilder",
+                "sonata-project/block-bundle": "Allows you to use SEO friendly blocks"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Sonata\\SeoBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Thomas Rabaix",
+                    "email": "thomas.rabaix@sonata-project.org",
+                    "homepage": "http://sonata-project.org"
+                },
+                {
+                    "name": "Sonata Community",
+                    "homepage": "https://github.com/sonata-project/SonataSeoBundle/contributors"
+                }
+            ],
+            "description": "Symfony SonataSeoBundle",
+            "homepage": "http://sonata-project.org/bundles/seo",
+            "keywords": [
+                "seo",
+                "sonata"
+            ],
+            "time": "2014-08-13 08:07:54"
+        },
+        {
             "name": "sonata-project/user-bundle",
             "version": "dev-master",
             "source": {
@@ -3307,7 +3370,8 @@
         "sonata-project/core-bundle": 20,
         "sonata-project/datagrid-bundle": 20,
         "sonata-project/user-bundle": 20,
-        "stof/doctrine-extensions-bundle": 20
+        "stof/doctrine-extensions-bundle": 20,
+        "sonata-project/seo-bundle": 20
     },
     "prefer-stable": true,
     "platform": {

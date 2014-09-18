@@ -1,4 +1,5 @@
 # This file contains project-wide parameters (i.e. email addresses) not installation-dependent
 parameters:
+    project.name:           Project name
     project.email.address:  noreply@project.com
     project.email.sender:   Project Name

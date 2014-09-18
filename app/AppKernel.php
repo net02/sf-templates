@@ -28,10 +28,12 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
+            new Sonata\SeoBundle\SonataSeoBundle(),
             
             // eOne
             new Eone\SonataCustomizationBundle\EoneSonataCustomizationBundle(),
             new Eone\MenuBundle\EoneMenuBundle(),
+            new Eone\SeoBundle\EoneSeoBundle(),
             
             // Demo bundles - get rid of them if you like
             new Acme\DemoBundle\AcmeDemoBundle(),
