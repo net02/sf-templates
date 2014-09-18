@@ -1,0 +1,12 @@
+# XML Sitemap
+eone_seo_sitemap_index:
+    pattern: /sitemap.{_format}
+    defaults: { _controller: EoneSeoBundle:Sitemap:index }
+    requirements:
+        _format: xml
+        
+eone_seo_sitemap_lang:
+    pattern: /sitemap-{_locale}.{_format}
+    defaults: { _controller: EoneSeoBundle:Sitemap:localized }
+    requirements:
+        _format: xml

@@ -1,0 +1,57 @@
+parameters:
+    sonata.seo.page.default.class: Eone\SeoBundle\Entity\SeoPage
+
+services:
+    # seo admin extension
+    eone.seo.extension:
+        class: Eone\SeoBundle\Admin\Extension\SeoAwareAdminExtension
+        arguments: [%locales_available%]
+        
+    # seo data form type
+    eone.seo.form.type.seodata:
+        class: Eone\SeoBundle\Form\Type\SeoType
+        tags:
+            - { name: form.type, alias: eone_seo_data }
+        arguments:
+            - "@doctrine.orm.entity_manager"
+            
+    # twig extension
+    eone.seo.twig.extension:
+        class: Eone\SeoBundle\Twig\Extension\SeoExtension
+        public: false
+        tags:
+            - { name: twig.extension }
+        arguments: ["@sonata.seo.page", "@event_dispatcher", "@request_stack"]
+            
+    # default listener
+    eone.seo.event_listener:
+        class: Eone\SeoBundle\EventListener\SeoEventListener
+        tags:
+            - { name: kernel.event_listener, event: seo.title, method: onDefaultSeoTitle, priority: 20 }
+            - { name: kernel.event_listener, event: seo.metadata, method: onDefaultSeoMetadata, priority: 20 }
+            - { name: kernel.event_listener, event: seo.title, method: onSeoTitle, priority: 10 }
+            - { name: kernel.event_listener, event: seo.metadata, method: onSeoMetadata, priority: 10 }
+        arguments:
+            - "@doctrine.orm.entity_manager"
+            - %eone.seo.append_title%
+            
+    # seo_set admin
+    eone.admin.seo.set:
+        class: Eone\SeoBundle\Admin\SeoSetAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: SEO, label: "Settings", icon: "<i class='fa fa-search-plus'></i>" }
+        arguments:
+            - ~
+            - Eone\SeoBundle\Entity\SeoSet
+            - 'SonataAdminBundle:CRUD'
+        calls:
+            - [addChild, ["@eone.admin.seo.seti18n"]]
+            
+    eone.admin.seo.seti18n:
+        class: Eone\SeoBundle\Admin\SeoSetI18nAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, show_in_dashboard: false }
+        arguments:
+            - ~
+            - Eone\SeoBundle\Entity\SeoSetI18n
+            - 'EoneSonataCustomizationBundle:TranslatingAdmin'

@@ -5,6 +5,7 @@ namespace Eone\MenuBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Eone\SonataCustomizationBundle\Model\Translating;
 use Eone\SonataCustomizationBundle\Model\TranslatableInterface;
+use Eone\SeoBundle\Model\SeoAwareInterface;
 
 /**
  * Eone\MenuBundle\Entity\MenuNodeI18n
@@ -12,7 +13,7 @@ use Eone\SonataCustomizationBundle\Model\TranslatableInterface;
  * @ORM\Table(name="menu_node_i18n")
  * @ORM\Entity
  */
-class MenuNodeI18n extends Translating {
+class MenuNodeI18n extends Translating implements SeoAwareInterface {
 
     /**
      * @var integer
@@ -57,6 +58,11 @@ class MenuNodeI18n extends Translating {
      * @ORM\Column(name="route_params", type="json_array", nullable=true)
      */
     private $translatedParams;
+    
+    /**
+     * @ORM\Column(type="object", nullable=true)
+     */
+    protected $seo_data;
     
     /**
      * Get id
@@ -176,5 +182,13 @@ class MenuNodeI18n extends Translating {
     public function getTranslatedParams()
     {
         return $this->translatedParams;
+    }
+    
+    public function getSeoData() {
+        return $this->seo_data;
+    }
+    
+    public function setSeoData($data) {
+        $this->seo_data = $data;
     }
 }

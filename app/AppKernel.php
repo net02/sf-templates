@@ -31,12 +31,14 @@ class AppKernel extends Kernel
             new Sonata\IntlBundle\SonataIntlBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new Sonata\MediaBundle\SonataMediaBundle(),
-            new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
+            new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),            
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
+            new Sonata\SeoBundle\SonataSeoBundle(),
             
             // eOne
             new Eone\SonataCustomizationBundle\EoneSonataCustomizationBundle(),
             new Eone\MenuBundle\EoneMenuBundle(),
+            new Eone\SeoBundle\EoneSeoBundle(),
             new Eone\BlockBundle\EoneBlockBundle(),
             
             // Demo bundles - get rid of them if you like

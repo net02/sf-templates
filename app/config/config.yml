@@ -3,6 +3,7 @@ imports:
     - { resource: project.yml }
     - { resource: security.yml }
     - { resource: sonata.yml }
+    - { resource: seo.yml }
 
 framework:
     #esi:             ~
