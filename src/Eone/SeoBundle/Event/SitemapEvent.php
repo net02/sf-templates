@@ -9,7 +9,7 @@ class SitemapEvent extends Event {
     /**
      * @var array
      */
-    protected $urls;
+    protected $urls = array();
     
     /**
      * @var string
