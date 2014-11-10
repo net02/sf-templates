@@ -1,13 +1,19 @@
+{% set menu = knp_menu_get('main') %}
 <!DOCTYPE html>
-<html>
-    <head>
+<html{% if app.request.locale is defined %} lang="{{ app.request.locale }}"{% endif %}>
+    <head {{ sonata_seo_html_attributes() }}>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}{{ eone_seo_title(menu.currentItem) }}{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
+        {% block javascripts %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+    <body class="{% block body_class %}{% endblock %}">
+        <div id="header">
+        {% block menu %}
+            {{ knp_menu_render(menu) }}
+        {% endblock %}
+        </div>
+        <div id="main">{% block body %}{% endblock %}</div>
     </body>
 </html>

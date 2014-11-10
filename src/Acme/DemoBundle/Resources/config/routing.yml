@@ -8,7 +8,9 @@ home:
     requirements:
         _locale:  %eone.locale.requirements%
 
-menu_demo:
-    pattern: /menu/{_locale}
+switch_demo:
+    pattern: /{_locale}/language
     defaults:
-        _controller: AcmeDemoBundle:Demo:menu
+        _controller: AcmeDemoBundle:Demo:language
+    requirements:
+        _locale:  %eone.locale.requirements%

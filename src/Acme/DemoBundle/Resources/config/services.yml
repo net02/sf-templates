@@ -1,4 +1,5 @@
 services:
+    # Sonata Admin
     acme.admin.demo.news:
         class: Acme\DemoBundle\Admin\NewsAdmin
         tags:
@@ -18,3 +19,10 @@ services:
             - ~
             - Acme\DemoBundle\Entity\NewsI18n
             - 'EoneSonataCustomizationBundle:TranslatingAdmin'
+            
+    # menu renderer(s)
+    acme.menu_renderer.language:
+        class: Acme\DemoBundle\Menu\LanguageRenderer
+        arguments: [%kernel.charset%]
+        tags:
+            - { name: knp_menu.renderer, alias: language }

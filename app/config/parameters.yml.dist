@@ -13,6 +13,6 @@ parameters:
 
     mailer_dev_address: developer@email.address
 
-    locale:            en
+    locale:            it
     locales_available: { it: Italiano, en: English }
     secret:            ThisTokenIsNotSoSecretChangeIt

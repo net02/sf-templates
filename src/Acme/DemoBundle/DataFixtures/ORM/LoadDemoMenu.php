@@ -38,8 +38,8 @@ class LoadDemoMenu implements FixtureInterface, ContainerAwareInterface
         $node = new MenuNode();
         $node
             ->setParent($root)
-            ->setName('node 2')
-            ->setUri('#test-hash')
+            ->setName('language switch')
+            ->setRoute('switch_demo')
         ;
         $i18n = $node->getTranslationObject();        
         $i18n->setLocale($defaultLocale)->setLabel($node->getName());
@@ -49,8 +49,8 @@ class LoadDemoMenu implements FixtureInterface, ContainerAwareInterface
         $node = new MenuNode();
         $node
             ->setParent($root)
-            ->setName('node 1')
-            ->setRoute('menu_demo')
+            ->setName('homepage')
+            ->setRoute('home')
         ;
         $i18n = $node->getTranslationObject();        
         $i18n->setLocale($defaultLocale)->setLabel($node->getName());
@@ -61,7 +61,7 @@ class LoadDemoMenu implements FixtureInterface, ContainerAwareInterface
         
         $childNode = new MenuNode();
         $childNode
-            ->setName('node 1.1')
+            ->setName('external link')
             ->setUri('http://www.example.com')
             ->setParent($node)
         ;
@@ -73,14 +73,36 @@ class LoadDemoMenu implements FixtureInterface, ContainerAwareInterface
         $node = new MenuNode();
         $node
             ->setParent($root)
-            ->setName('node 3 abs')
-            ->setRoute('menu_demo')
+            ->setName('absolute url')
+            ->setRoute('home')
             ->setAbsolute(true)
         ;
         $i18n = $node->getTranslationObject();        
         $i18n->setLocale($defaultLocale)->setLabel($node->getName());
         $node->addTranslation($i18n);
-        $manager->persist($node);        
+        $manager->persist($node);
+        
+        $childNode = new MenuNode();
+        $childNode
+            ->setName('sitemap xml')
+            ->setUri('/sitemap.xml')
+            ->setParent($node)
+        ;
+        $i18n = $childNode->getTranslationObject();        
+        $i18n->setLocale($defaultLocale)->setLabel($childNode->getName());
+        $childNode->addTranslation($i18n);
+        $manager->persist($childNode);
+        
+        $node = new MenuNode();
+        $node
+            ->setParent($root)
+            ->setName('with hash')
+            ->setUri('#test-hash')
+        ;
+        $i18n = $node->getTranslationObject();        
+        $i18n->setLocale($defaultLocale)->setLabel($node->getName());
+        $node->addTranslation($i18n);
+        $manager->persist($node);       
                 
         $manager->flush();
     }

@@ -24,8 +24,8 @@ class DemoController extends TranslatingController
         return $this->render('AcmeDemoBundle::home.html.twig');
     }
     
-    public function menuAction() {
-        return $this->render('AcmeDemoBundle::menu.html.twig');
+    public function languageAction() {
+        return $this->render('AcmeDemoBundle::language.html.twig');
     }
     
     /**

@@ -1,12 +1,15 @@
 {% extends "::base.html.twig" %}
 
-{% set menu = knp_menu_get('main') %}
-{% block body %}
+{% block stylesheets %}
 <style type="text/css">
-    li.current > a { font-weight: bold; }
+.menu-item {
+    display: inline-block;
+    padding: 5px 10px;
+}
+.menu-item.active a { font-weight: bold; }
 </style>
-    {# knp_menu_render('main') #}
-    {{ knp_menu_render(menu) }}
+{% endblock %}
 
+{% block body %}
     {{ render(controller('AcmeDemoBundle:Demo:switch', {'current': menu.currentItem })) }}
 {% endblock %}
