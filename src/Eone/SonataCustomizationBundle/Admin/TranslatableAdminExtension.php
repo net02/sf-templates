@@ -33,6 +33,7 @@ class TranslatableAdminExtension extends AdminExtension {
         
         if (!$admin->id($admin->getSubject())) {
             $formMapper
+                ->end()
                 ->with('Default translation')
                     ->add(
                         'translations',
