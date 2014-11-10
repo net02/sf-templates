@@ -68,6 +68,7 @@ class MenuNodeAdmin extends Admin
                     return $qb;
                 }
             ))
+            ->end()
             ->with('Target')
                 ->add('uri', null, array(), array('help' => 'Relative or absolute url'))
                 ->add('route', null, array(), array('help' => 'If set, <strong>uri</strong> is ignored'))
