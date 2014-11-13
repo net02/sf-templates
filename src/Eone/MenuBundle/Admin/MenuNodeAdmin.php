@@ -102,7 +102,7 @@ class MenuNodeAdmin extends Admin
         // validate the route
         else if (strlen($object->getRoute())) {
             try {
-                $this->getRouter()->generate($object->getRoute(), $object->getRouteParams());
+                $this->getRouter()->generate($object->getRoute(), $object->getRouteParams() ?: array());
             } 
             catch (RouteNotFoundException $ex) {
                 $errorElement->with('route')->addViolation('Route does not exist.')->end();
