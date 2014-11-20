@@ -4,7 +4,7 @@ namespace Eone\SeoBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\StreamedResponse;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class ProxyController extends Controller
@@ -17,8 +17,6 @@ class ProxyController extends Controller
         }
         
         $provider   = $this->get('sonata.media.pool')->getProvider($media->getProviderName());
-        $thumbnail  = $this->get('sonata.media.thumbnail.format');
-        
         $format = $provider->getFormatName($media, $format);
         
         if ($format != 'reference' && !$provider->getFormat($format)) {
@@ -29,15 +27,6 @@ class ProxyController extends Controller
         $headers = array(
             'Content-Type' => $media->getContentType(),
         );
-        
-        if ($format == 'reference') {
-            $path = $provider->getReferenceImage($media);
-        } else {
-            $path = $thumbnail->generatePublicUrl($provider, $media, $format);
-        }
-        
-        return new StreamedResponse(function() use ($provider, $path) {            
-            echo $provider->getFilesystem()->get($path, true)->getContent();
-        }, 200, $headers);
+        return new BinaryFileResponse(sprintf("%s%s", $this->container->getParameter('kernel.root_dir').'/../web', $provider->generatePublicUrl($media, $format)), 200, $headers);
     }
 }
