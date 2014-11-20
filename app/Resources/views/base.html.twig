@@ -3,7 +3,8 @@
 <html{% if app.request.locale is defined %} lang="{{ app.request.locale }}"{% endif %}>
     <head {{ sonata_seo_html_attributes() }}>
         <meta charset="UTF-8" />
-        <title>{% block title %}{{ eone_seo_title(menu.currentItem) }}{% endblock %}</title>
+        <title>{% block title %}{{ eone_seo_title(menu.currentItem) }}{% endblock %}</title>        
+        {% block meta %}{{ eone_seo_metadata(menu.currentItem) }}{% endblock %}
         {% block stylesheets %}{% endblock %}
         {% block javascripts %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
