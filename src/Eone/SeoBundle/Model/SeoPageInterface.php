@@ -11,7 +11,8 @@ interface SeoPageInterface extends BaseSeoPageInterface {
      * @return SeoPageInterface
      */
     public function setTitlePrefix($prefix);
-
-
+    
     public function getTitlePrefix();
+    
+    public function getSeparator();
 }

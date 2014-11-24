@@ -33,4 +33,9 @@ class SeoPage extends BaseSeoPage implements SeoPageInterface
         
         return implode($this->separator, array_filter($titles));
     }
+    
+    public function getSeparator()
+    {
+        return $this->separator;
+    }
 }
