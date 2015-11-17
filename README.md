@@ -1,6 +1,6 @@
-Templates for sf2.4 projects
+Templates for sf2.7 projects
 
-* symfony2.4 and web/grafica folder, plus .htaccess tweaks
+* symfony2.7 and web/grafica folder, plus .htaccess tweaks
 * sonata admin bundle (via ORM) with FOS user and e-one customization
 * i18n integration with sonata admin
 * Doctrine ORM knp-menu integration
@@ -30,7 +30,7 @@ Create the upload directory
 ```sh
 $ mkdir web/uploads
 $ mkdir web/uploads/media
-$ chmod -R 0777 web/uploads
+$ chmod -R 0755 web/uploads
 ```
 
 # Configuration reference
