@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
+  <file date="2016-03-22T14:46:50Z" source-language="it" target-language="en" datatype="plaintext" original="not.available">
+    <header>
+      <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
+      <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
+    </header>
+    <body>
+      <trans-unit id="a68c43e892fb3d02e71b95fb399ef43c16428ec6" resname="Copy as translation for the following languages:">
+        <jms:reference-file line="62">SonataCustomizationBundle/Controller/TranslatingAdminController.php</jms:reference-file>
+        <source>Copy as translation for the following languages:</source>
+        <target state="new">Copy as translation for the following languages:</target>
+      </trans-unit>
+      <trans-unit id="13273741eaddf28c6ae107bf719b905293dd86cc" resname="Meta Description">
+        <jms:reference-file line="47">Form/Type/SeoType.php</jms:reference-file>
+        <source>Meta Description</source>
+        <target state="new">Meta Description</target>
+      </trans-unit>
+      <trans-unit id="228b1eb2861608ab70ee6fe14bf45009e6514a27" resname="Meta Keywords">
+        <jms:reference-file line="48">Form/Type/SeoType.php</jms:reference-file>
+        <source>Meta Keywords</source>
+        <target state="new">Meta Keywords</target>
+      </trans-unit>
+      <trans-unit id="34bd5b320fbbc9a23515d360643842152630c056" resname="Nessuno">
+        <jms:reference-file line="40">Form/Type/SeoType.php</jms:reference-file>
+        <source>Nessuno</source>
+        <target state="new">Nessuno</target>
+      </trans-unit>
+      <trans-unit id="9b4acdcbfc97d5ab3c3890a58bca1293d30ae0d8" resname="Rimuovi">
+        <jms:reference-file line="31">Form/Type/LocalizedMediaType.php</jms:reference-file>
+        <source>Rimuovi</source>
+        <target state="new">Rimuovi</target>
+      </trans-unit>
+      <trans-unit id="d35eab79a9fff701b8de16484c52506b3d609579" resname="Tag aggiuntivi">
+        <jms:reference-file line="49">Form/Type/SeoType.php</jms:reference-file>
+        <source>Tag aggiuntivi</source>
+        <target state="new">Tag aggiuntivi</target>
+      </trans-unit>
+      <trans-unit id="b2f23da948c4a651b0c86de9fca2dcb4e0f58999" resname="Titolo">
+        <jms:reference-file line="46">Form/Type/SeoType.php</jms:reference-file>
+        <source>Titolo</source>
+        <target state="new">Titolo</target>
+      </trans-unit>
+      <trans-unit id="426a393dfea0f107e0991d9eab5100ab533ef89e" resname="Utilizza un set di valori">
+        <jms:reference-file line="37">Form/Type/SeoType.php</jms:reference-file>
+        <source>Utilizza un set di valori</source>
+        <target state="new">Utilizza un set di valori</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

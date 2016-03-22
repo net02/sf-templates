@@ -24,14 +24,14 @@ class EoneSonataCustomizationExtension extends Extension
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
-        
-        if (!$container->hasParameter('locales_available')) {
-            throw new \RuntimeException('Parameter "locales_available" must be set.');
+
+        if (!$container->hasParameter('project.locales_available')) {
+            throw new \RuntimeException('Parameter "project.locales_available" must be set.');
         }
         // prepare locale requirements for routing purposes
-        $container->setParameter('eone.locale.requirements', implode('|', array_keys($container->getParameter('locales_available'))));
-        $container->setParameter('eone.locale.locales', array_keys($container->getParameter('locales_available')));
-        
+        $container->setParameter('eone.locale.requirements', implode('|', array_keys($container->getParameter('project.locales_available'))));
+        $container->setParameter('eone.locale.locales', array_keys($container->getParameter('project.locales_available')));
+
         $container->setParameter('eone.sonatacustomization.configuration.templates', $config['templates']);
     }
 }

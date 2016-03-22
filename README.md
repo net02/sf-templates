@@ -32,6 +32,10 @@ $ mkdir web/uploads
 $ mkdir web/uploads/media
 $ chmod -R 0755 web/uploads
 ```
+Generate translation xliff
+```sh
+$ php app/console translation:extract --config=app
+```
 
 # Configuration reference
 To use gmail mailing service (during developement) use these parameters:
@@ -49,7 +53,7 @@ project.admin.entity:
     ...
     calls:
         - [addChild, ["@project.admin.entityi18n"]]    
-            
+
 project.admin.entityi18n:
     ...
     arguments:

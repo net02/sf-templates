@@ -5,8 +5,8 @@ services:
     # seo admin extension
     eone.seo.extension:
         class: Eone\SeoBundle\Admin\Extension\SeoAwareAdminExtension
-        arguments: [%locales_available%]
-        
+        arguments: [%project.locales_available%]
+
     # seo data form type
     eone.seo.form.type.seodata:
         class: Eone\SeoBundle\Form\Type\SeoType
@@ -14,7 +14,7 @@ services:
             - { name: form.type, alias: eone_seo_data }
         arguments:
             - "@doctrine.orm.entity_manager"
-            
+
     # twig extension
     eone.seo.twig.extension:
         class: Eone\SeoBundle\Twig\Extension\SeoExtension
@@ -22,14 +22,14 @@ services:
         tags:
             - { name: twig.extension }
         arguments: ["@sonata.seo.page", "@event_dispatcher", "@request_stack"]
-    
+
     eone.seo_media.twig.extension:
         class: Eone\SeoBundle\Twig\Extension\SeoMediaExtension
         public: false
         tags:
             - { name: twig.extension }
         arguments: ["@sonata.media.pool", "@sonata.media.manager.media", "@router", %eone.seo.media_route%]
-            
+
     # default listener
     eone.seo.event_listener:
         class: Eone\SeoBundle\EventListener\SeoEventListener
@@ -41,7 +41,7 @@ services:
         arguments:
             - "@doctrine.orm.entity_manager"
             - %eone.seo.append_title%
-            
+
     # seo_set admin
     eone.admin.seo.set:
         class: Eone\SeoBundle\Admin\SeoSetAdmin
@@ -53,7 +53,7 @@ services:
             - 'SonataAdminBundle:CRUD'
         calls:
             - [addChild, ["@eone.admin.seo.seti18n"]]
-            
+
     eone.admin.seo.seti18n:
         class: Eone\SeoBundle\Admin\SeoSetI18nAdmin
         tags:

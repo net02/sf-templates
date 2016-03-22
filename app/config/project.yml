@@ -3,3 +3,6 @@ parameters:
     project.name:           Project name
     project.email.address:  noreply@project.com
     project.email.sender:   Project Name
+    project.locales_available:
+        it: Italiano
+        en: English

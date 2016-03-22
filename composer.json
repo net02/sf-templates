@@ -28,14 +28,15 @@
         "knplabs/knp-menu-bundle": "~1.1",
         "sonata-project/admin-bundle": "2.3.x-dev",
         "sonata-project/doctrine-orm-admin-bundle": "2.3.x-dev",
-        "sonata-project/core-bundle": "2.2.x-dev",
+        "sonata-project/core-bundle": "2.3.x-dev",
         "sonata-project/datagrid-bundle": "2.2.x-dev",
         "sonata-project/user-bundle": "2.3.x-dev",
         "doctrine/doctrine-fixtures-bundle": "2.2.*",
-        "stof/doctrine-extensions-bundle": "1.2.x-dev",
+        "stof/doctrine-extensions-bundle": "^1.2",
         "sonata-project/seo-bundle": "1.1.x-dev",
-        "egeloen/ckeditor-bundle": "2.3.*@dev",
-        "sonata-project/media-bundle": "2.3.x-dev"
+        "egeloen/ckeditor-bundle": "~4.0",
+        "sonata-project/media-bundle": "2.3.x-dev",
+        "jms/translation-bundle": "1.1.*@dev"
     },
     "scripts": {
         "post-install-cmd": [

@@ -32,7 +32,7 @@ twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
     globals:
-        locales_available: %locales_available%
+        locales_available: %project.locales_available%
 
 # Assetic Configuration
 assetic:
@@ -60,7 +60,7 @@ doctrine:
         # if using pdo_sqlite as your database driver, add the path in parameters.yml
         # e.g. database_path: "%kernel.root_dir%/data/data.db3"
         # path:     "%database_path%"
-        
+
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
         auto_mapping: true
@@ -71,7 +71,7 @@ doctrine:
                 dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Tree/Entity"
                 alias: GedmoTree
                 is_bundle: false
-                
+
 # Doctrine extensions Configuration
 stof_doctrine_extensions:
     default_locale: %locale%
@@ -86,7 +86,7 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
-    
+
 # Knp menu
 knp_menu:
     providers:
@@ -101,3 +101,15 @@ ivory_ck_editor:
             enterMode: 1 # Enter Mode = <p>
             allowedContent: true  # don't mess around with classes etc
             toolbar: [["Format","Bold","Italic","Underline","-","NumberedList","BulletedList","-","Link","Unlink","-","Undo","Redo","-","Cut","Copy","PasteText"], ["Image","Source","Maximize"]]
+
+# Translation Configuration
+jms_translation:
+    locales: %eone.locale.locales%
+    source_language: it
+    configs:
+        app:
+            dirs: [%kernel.root_dir%, %kernel.root_dir%/../src]
+            output_dir: %kernel.root_dir%/Resources/translations
+            ignored_domains: [routes, SonataAdminBundle, SonataMediaBundle, FOSUserBundle, SonataUserBundle]
+            excluded_names: ["*TestCase.php", "*Test.php", "*Admin.php", "*AdminExtension.php"]
+            excluded_dirs: [cache, data, logs, vendor]

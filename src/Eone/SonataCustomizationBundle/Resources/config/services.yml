@@ -1,32 +1,32 @@
-parameters: 
+parameters:
     eone.sonatacustomization.twig.global.class: Eone\SonataCustomizationBundle\Twig\GlobalVariables
 
 services:
     # sonata admin pool & tpl var
     eone.sonatacustomization.twig.global:
         class:  %eone.sonatacustomization.twig.global.class%
-        arguments: 
+        arguments:
             - "@service_container"
-            
+
     # sonata i18n extension
     eone.sonatacustomization.translatable.extension:
         class: Eone\SonataCustomizationBundle\Admin\TranslatableAdminExtension
-        arguments: [%locales_available%]
+        arguments: [%project.locales_available%]
     eone.sonatacustomization.translating.extension:
         class: Eone\SonataCustomizationBundle\Admin\TranslatingAdminExtension
-        arguments: [%locales_available%]
-    
+        arguments: [%project.locales_available%]
+
     # i18n stuff
     eone.sonatacustomization.before_controller:
         class: Eone\SonataCustomizationBundle\Service\BeforeControllerListener
         tags:
             - { name: kernel.event_listener, event: kernel.controller, method: onKernelController}
         arguments:    ["@security.context"]
-        
+
     eone.locale:
         class:     Eone\SonataCustomizationBundle\Service\Locale
         arguments: [%locale%]
-        
+
     eone.locale.listener:
         class:     Eone\SonataCustomizationBundle\Service\LocaleListener
         arguments: ["@eone.locale"]
@@ -37,25 +37,25 @@ services:
         arguments: ["@eone.locale"]
         tags:
             - { name: doctrine.event_listener, event: postLoad }
-            
+
     # tree form type
     eone.sonatacustomization.form.type.tree:
         class: Eone\SonataCustomizationBundle\Form\Type\TreeType
         tags:
             - { name: form.type, alias: eone_sonata_tree }
-            
+
     # key-value form type
     eone.sonatacustomization.form.type.keyvalue:
         class: Eone\SonataCustomizationBundle\Form\Type\KeyValueType
         tags:
             - { name: form.type, alias: eone_key_value }
-    
+
     # ckeditor extension
     eone.sonatacustomization.ckeditor.extension:
         class: Eone\SonataCustomizationBundle\Admin\CkeditorAdminExtension
         tags:
             - { name: sonata.admin.extension, target: sonata.media.admin.media }
-    
+
     # localized media form type
     eone.sonatacustomization.form.type.localized_media:
         class: Eone\SonataCustomizationBundle\Form\Type\LocalizedMediaType
